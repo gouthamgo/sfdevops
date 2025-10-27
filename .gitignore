@@ -109,9 +109,8 @@ public
 *.backup
 *~
 
-# Claude Code (keep configuration, ignore session data)
-.claude/sessions/
-.claude/cache/
+# Claude Code (IDE-specific configuration)
+.claude/
 
 # Local environment files
 .env
