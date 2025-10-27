@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-docusaurus@latest . classic --javascript)",
+      "Read(//private/tmp/**)",
+      "Bash(npm start)",
+      "Bash(npm install)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill -9)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
