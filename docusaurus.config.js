@@ -124,16 +124,12 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'Portfolio Projects',
-                to: '/projects',
-              },
-              {
                 label: 'Blog',
                 to: '/blog',
               },
               {
-                label: 'About',
-                to: '/about',
+                label: 'Interview Prep',
+                to: '/docs/interview-prep/',
               },
             ],
           },
