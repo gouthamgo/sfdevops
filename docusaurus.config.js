@@ -151,7 +151,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Salesforce DevOps Learning Hub. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Salesforce DevOps Learning Hub.`,
       },
       prism: {
         theme: prismThemes.github,
