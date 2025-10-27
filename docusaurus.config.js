@@ -91,11 +91,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Docs',
+            label: 'Learning Path',
           },
-          {to: '/projects', label: 'Projects', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/about', label: 'About', position: 'left'},
           {
             type: 'search',
             position: 'right',

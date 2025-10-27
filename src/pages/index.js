@@ -20,7 +20,13 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Start Learning - Free 🚀
+          </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/docs/interview-prep/"
+            style={{marginLeft: '1rem'}}>
+            Interview Prep 💼
           </Link>
         </div>
       </div>
@@ -32,8 +38,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Learn Salesforce DevOps - From Beginner to Production-Ready`}
+      description="Master Salesforce DevOps, CI/CD pipelines, Git workflows, and automated testing. Complete learning path with hands-on examples, interview prep, and portfolio projects. Free comprehensive guide for DevOps engineers.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

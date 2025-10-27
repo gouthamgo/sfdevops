@@ -4,32 +4,34 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Beginner-Friendly Learning Path',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Start from zero knowledge and progress to production-ready DevOps engineer.
+        7 foundation topics with hands-on examples, real scenarios, and practical exercises.
+        No prerequisites required.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Interview Prep & Git Mastery',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Master Git branching strategies, daily workflows, and 30+ technical interview questions.
+        Build a portfolio with 5 projects. STAR method for behavioral interviews.
+        Get ready for DevOps Lead roles.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Real-World CI/CD Pipelines',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Learn GitLab CI/CD, automated testing, deployment strategies, and production troubleshooting.
+        50,000+ words of content with code examples, diagrams, and complete workflows you can use immediately.
       </>
     ),
   },
