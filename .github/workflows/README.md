@@ -14,7 +14,7 @@ This directory contains automated CI/CD workflows for the Salesforce DevOps Lear
 1. **Build & Test Job:**
    - Checks out code
    - Sets up Node.js 20
-   - Installs dependencies
+   - Installs dependencies (with automatic retry on network errors)
    - Builds Docusaurus site
    - Runs tests (if any)
    - Uploads build artifacts
@@ -117,6 +117,12 @@ This workflow demonstrates enterprise DevOps practices:
 - Check workflow logs
 - Verify `auto-merge` job ran
 - Check for merge conflicts
+
+**npm ci fails with network error (ECONNRESET):**
+- Workflow automatically retries up to 3 times with 30-second delays
+- This is a transient GitHub/NPM registry issue
+- Usually resolves itself on retry
+- If all retries fail, manually re-run the workflow
 
 **Want to skip auto-merge for a commit:**
 - Create a pull request instead of direct push
