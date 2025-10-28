@@ -12,20 +12,26 @@
   stroke: #1a1a1a !important;
 }
 
-/* Make text more visible in light mode */
+/* Make text more visible in light mode - default for non-styled boxes */
 html[data-theme='light'] .mermaid .node .label,
 html[data-theme='light'] .mermaid .nodeLabel {
   color: #000000 !important;
-  font-weight: 600 !important;
-  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8),
+               0 -1px 2px rgba(255, 255, 255, 0.8),
+               1px 0 2px rgba(255, 255, 255, 0.8),
+               -1px 0 2px rgba(255, 255, 255, 0.8);
 }
 
 /* Make text visible in dark mode */
 html[data-theme='dark'] .mermaid .node .label,
 html[data-theme='dark'] .mermaid .nodeLabel {
   color: #ffffff !important;
-  font-weight: 600 !important;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9),
+               0 -1px 3px rgba(0, 0, 0, 0.9),
+               1px 0 3px rgba(0, 0, 0, 0.9),
+               -1px 0 3px rgba(0, 0, 0, 0.9);
 }
 
 /* Edge labels (text on arrows) */
@@ -161,24 +167,95 @@ html[data-theme='dark'] .mermaid .grid .tick line {
   fill: #4caf50 !important;
 }
 
-/* Better contrast for light backgrounds */
-html[data-theme='light'] .mermaid [style*="fill:#66bb6a"] text,
-html[data-theme='light'] .mermaid [style*="fill:#4caf50"] text {
+/* Better contrast for both light and dark modes */
+
+/* Green boxes - always use dark text with strong shadow */
+.mermaid [style*="fill:#66bb6a"] text,
+.mermaid [style*="fill:#4caf50"] text {
   fill: #1b5e20 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
 }
 
-html[data-theme='light'] .mermaid [style*="fill:#42a5f5"] text {
+/* Blue boxes - always use dark text with strong shadow */
+.mermaid [style*="fill:#42a5f5"] text {
   fill: #0d47a1 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
 }
 
-html[data-theme='light'] .mermaid [style*="fill:#ef5350"] text {
+/* Red boxes - always use dark text with strong shadow */
+.mermaid [style*="fill:#ef5350"] text {
   fill: #b71c1c !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
 }
 
-html[data-theme='light'] .mermaid [style*="fill:#9575cd"] text {
+/* Purple boxes - always use dark text with strong shadow */
+.mermaid [style*="fill:#9575cd"] text {
   fill: #4a148c !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
 }
 
-html[data-theme='light'] .mermaid [style*="fill:#ffa726"] text {
+/* Orange boxes - always use dark text with strong shadow */
+.mermaid [style*="fill:#ffa726"] text {
   fill: #e65100 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
+}
+
+/* Gray boxes - use dark text with strong shadow */
+.mermaid [style*="fill:#78909c"] text {
+  fill: #263238 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
+}
+
+/* Light blue boxes - use dark text with strong shadow */
+.mermaid [style*="fill:#bbdefb"] text {
+  fill: #0d47a1 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
+}
+
+/* Light green boxes - use dark text with strong shadow */
+.mermaid [style*="fill:#c8e6c9"] text {
+  fill: #1b5e20 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
+}
+
+/* Light orange boxes - use dark text with strong shadow */
+.mermaid [style*="fill:#ffe0b2"] text {
+  fill: #e65100 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1),
+               0 -1px 3px rgba(255, 255, 255, 1),
+               1px 0 3px rgba(255, 255, 255, 1),
+               -1px 0 3px rgba(255, 255, 255, 1) !important;
 }
