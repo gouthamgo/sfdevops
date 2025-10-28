@@ -19,22 +19,97 @@ This tutorial teaches you GitHub Actions by building a **real production workflo
 
 By the end of this tutorial, you'll have created:
 
-```mermaid
-graph LR
-    PUSH[Developer pushes<br/>to 'new' branch]
-    BUILD[GitHub Actions:<br/>Build & Test]
-    SUCCESS{Build<br/>Successful?}
-    MERGE[Auto-merge<br/>to main]
-    NOTIFY[Notify failure]
+### High-Level Workflow Overview
 
-    PUSH --> BUILD
+```mermaid
+graph TB
+    PUSH[👨‍💻 Developer pushes<br/>to 'new' branch]
+    TRIGGER[⚡ Workflow Triggered]
+
+    subgraph "GitHub Actions Workflow"
+        BUILD[🔨 Job 1: Build & Test<br/>- Checkout code<br/>- Install dependencies<br/>- Build Docusaurus<br/>- Run tests<br/>- Upload artifacts]
+
+        SUCCESS{✅ Build<br/>Successful?}
+
+        MERGE[🎯 Job 2: Auto-Merge<br/>- Configure Git<br/>- Merge new → main<br/>- Push to main]
+
+        NOTIFY[📧 Job 3: Notify Failure<br/>- Comment on commit<br/>- Alert developer]
+    end
+
+    MAIN[🚀 Main Branch Updated]
+    FAIL[❌ Build Blocked]
+
+    PUSH --> TRIGGER
+    TRIGGER --> BUILD
     BUILD --> SUCCESS
     SUCCESS -->|Yes| MERGE
     SUCCESS -->|No| NOTIFY
+    MERGE --> MAIN
+    NOTIFY --> FAIL
 
+    style PUSH fill:#9575cd,color:#fff
     style BUILD fill:#42a5f5,color:#fff
     style MERGE fill:#66bb6a,color:#fff
     style NOTIFY fill:#ef5350,color:#fff
+    style MAIN fill:#4caf50,color:#fff
+    style FAIL fill:#d32f2f,color:#fff
+    style SUCCESS fill:#ffa726,color:#fff
+```
+
+### Complete Workflow Architecture
+
+```mermaid
+graph TB
+    subgraph "Trigger Event"
+        GIT[git push origin new]
+    end
+
+    subgraph "Job 1: build-and-test"
+        direction TB
+        B1[Step 1: Checkout code<br/>actions/checkout@v4]
+        B2[Step 2: Setup Node.js 20<br/>actions/setup-node@v4]
+        B3[Step 3: Install dependencies<br/>npm ci]
+        B4[Step 4: Build site<br/>npm run build]
+        B5[Step 5: Run tests<br/>npm test]
+        B6[Step 6: Upload artifacts<br/>actions/upload-artifact@v4]
+
+        B1 --> B2 --> B3 --> B4 --> B5 --> B6
+    end
+
+    subgraph "Job 2: auto-merge (if success)"
+        direction TB
+        M1[Step 1: Checkout code]
+        M2[Step 2: Configure Git user]
+        M3[Step 3: Fetch branches]
+        M4[Step 4: Merge new → main]
+        M5[Step 5: Push to main]
+        M6[Step 6: Create summary]
+
+        M1 --> M2 --> M3 --> M4 --> M5 --> M6
+    end
+
+    subgraph "Job 3: notify-failure (if failure)"
+        direction TB
+        N1[Step 1: Comment on commit<br/>with error details]
+    end
+
+    GIT --> B1
+    B6 -->|Success| M1
+    B6 -->|Failure| N1
+
+    style B1 fill:#42a5f5,color:#fff
+    style B2 fill:#42a5f5,color:#fff
+    style B3 fill:#42a5f5,color:#fff
+    style B4 fill:#42a5f5,color:#fff
+    style B5 fill:#42a5f5,color:#fff
+    style B6 fill:#42a5f5,color:#fff
+    style M1 fill:#66bb6a,color:#fff
+    style M2 fill:#66bb6a,color:#fff
+    style M3 fill:#66bb6a,color:#fff
+    style M4 fill:#66bb6a,color:#fff
+    style M5 fill:#66bb6a,color:#fff
+    style M6 fill:#66bb6a,color:#fff
+    style N1 fill:#ef5350,color:#fff
 ```
 
 **What it does:**
@@ -190,6 +265,61 @@ steps:
 ## Part 2: Our Real Auto-Merge Workflow (Step-by-Step)
 
 Let's break down the actual workflow we built for this project!
+
+### Workflow File Structure
+
+```mermaid
+graph TB
+    ROOT[📄 auto-merge-to-main.yml]
+
+    subgraph "Workflow Configuration"
+        NAME[name: Auto-Merge to Main]
+        TRIGGER[on: push to 'new' branch]
+        PERMS[permissions:<br/>contents: write<br/>pull-requests: write]
+    end
+
+    subgraph "Job 1: build-and-test"
+        B_RUN[runs-on: ubuntu-latest]
+        B_STEPS[6 Sequential Steps:<br/>1. Checkout<br/>2. Setup Node<br/>3. Install deps<br/>4. Build<br/>5. Test<br/>6. Upload artifacts]
+    end
+
+    subgraph "Job 2: auto-merge"
+        M_NEEDS[needs: build-and-test]
+        M_IF[if: success]
+        M_RUN[runs-on: ubuntu-latest]
+        M_STEPS[6 Sequential Steps:<br/>1. Checkout<br/>2. Config Git<br/>3. Fetch branches<br/>4. Merge<br/>5. Push<br/>6. Summary]
+    end
+
+    subgraph "Job 3: notify-failure"
+        N_NEEDS[needs: build-and-test]
+        N_IF[if: failure]
+        N_RUN[runs-on: ubuntu-latest]
+        N_STEPS[1 Step:<br/>Comment on commit]
+    end
+
+    ROOT --> NAME & TRIGGER & PERMS
+    PERMS --> B_RUN
+    B_RUN --> B_STEPS
+    B_STEPS -.->|if success| M_NEEDS
+    B_STEPS -.->|if failure| N_NEEDS
+    M_NEEDS --> M_IF --> M_RUN --> M_STEPS
+    N_NEEDS --> N_IF --> N_RUN --> N_STEPS
+
+    style ROOT fill:#9575cd,color:#fff
+    style NAME fill:#78909c,color:#fff
+    style TRIGGER fill:#78909c,color:#fff
+    style PERMS fill:#78909c,color:#fff
+    style B_RUN fill:#42a5f5,color:#fff
+    style B_STEPS fill:#42a5f5,color:#fff
+    style M_NEEDS fill:#66bb6a,color:#fff
+    style M_IF fill:#66bb6a,color:#fff
+    style M_RUN fill:#66bb6a,color:#fff
+    style M_STEPS fill:#66bb6a,color:#fff
+    style N_NEEDS fill:#ef5350,color:#fff
+    style N_IF fill:#ef5350,color:#fff
+    style N_RUN fill:#ef5350,color:#fff
+    style N_STEPS fill:#ef5350,color:#fff
+```
 
 ### The Complete Workflow
 
@@ -579,51 +709,250 @@ notify-failure:
 
 ## Part 4: How It All Works Together
 
-### Successful Build Flow
+### Job Dependency Architecture
+
+```mermaid
+graph TB
+    TRIGGER[⚡ Workflow Triggered<br/>on: push to 'new' branch]
+
+    subgraph "Jobs Run in Sequence"
+        JOB1[Job 1: build-and-test<br/>runs-on: ubuntu-latest<br/>Status: Always runs]
+
+        CONDITION{Job 1<br/>Result?}
+
+        JOB2[Job 2: auto-merge<br/>runs-on: ubuntu-latest<br/>needs: build-and-test<br/>if: success<br/>Status: Only if Job 1 succeeds]
+
+        JOB3[Job 3: notify-failure<br/>runs-on: ubuntu-latest<br/>needs: build-and-test<br/>if: failure<br/>Status: Only if Job 1 fails]
+    end
+
+    RESULT_SUCCESS[✅ Changes merged to main]
+    RESULT_FAILURE[❌ Build blocked, developer notified]
+
+    TRIGGER --> JOB1
+    JOB1 --> CONDITION
+    CONDITION -->|Success| JOB2
+    CONDITION -->|Failure| JOB3
+    JOB2 --> RESULT_SUCCESS
+    JOB3 --> RESULT_FAILURE
+
+    style TRIGGER fill:#9575cd,color:#fff
+    style JOB1 fill:#42a5f5,color:#fff
+    style JOB2 fill:#66bb6a,color:#fff
+    style JOB3 fill:#ef5350,color:#fff
+    style CONDITION fill:#ffa726,color:#fff
+    style RESULT_SUCCESS fill:#4caf50,color:#fff
+    style RESULT_FAILURE fill:#d32f2f,color:#fff
+```
+
+### Complete Workflow Timeline (Successful Build)
+
+```mermaid
+gantt
+    title GitHub Actions Workflow Timeline
+    dateFormat ss
+    axisFormat %S sec
+
+    section Trigger
+    Developer pushes code           :milestone, m1, 00, 0s
+    Workflow queued                 :active, 00, 5s
+
+    section Job 1: Build & Test
+    Checkout code                   :done, b1, 05, 10s
+    Setup Node.js (with cache)      :done, b2, after b1, 15s
+    Install dependencies (npm ci)   :done, b3, after b2, 30s
+    Build Docusaurus site           :done, b4, after b3, 45s
+    Run tests                       :done, b5, after b4, 15s
+    Upload build artifacts          :done, b6, after b5, 10s
+
+    section Job 2: Auto-Merge
+    Checkout code                   :active, m1, after b6, 5s
+    Configure Git                   :active, m2, after m1, 3s
+    Fetch branches                  :active, m3, after m2, 5s
+    Merge new to main               :active, m4, after m3, 2s
+    Push to main                    :active, m5, after m4, 5s
+    Create summary                  :active, m6, after m5, 2s
+
+    section Result
+    Changes live in main branch     :milestone, m2, after m6, 0s
+```
+
+### Successful Build Flow (Detailed)
 
 ```mermaid
 sequenceDiagram
-    participant Dev as Developer
-    participant GH as GitHub
-    participant Runner as GitHub Runner
-    participant Main as Main Branch
+    participant Dev as 👨‍💻 Developer
+    participant GH as 🐙 GitHub
+    participant Runner as 🏃 GitHub Runner
+    participant Npm as 📦 NPM Registry
+    participant Main as 🎯 Main Branch
 
+    Note over Dev: Developer has finished feature
     Dev->>GH: git push origin new
-    GH->>Runner: Trigger workflow
+    Note over GH: Push detected on 'new' branch
 
-    Runner->>Runner: Checkout code
-    Runner->>Runner: Setup Node.js
-    Runner->>Runner: npm ci
-    Runner->>Runner: npm run build
-    Note over Runner: ✅ Build successful!
+    GH->>Runner: Trigger workflow (auto-merge-to-main.yml)
+    Note over Runner: Spinning up Ubuntu VM
 
-    Runner->>Runner: Configure git
-    Runner->>Runner: Merge new → main
-    Runner->>Main: Push to main
+    rect rgb(66, 165, 245)
+        Note over Runner: Job 1: build-and-test
+        Runner->>GH: Checkout code (fetch-depth: 0)
+        Runner->>Runner: Setup Node.js 20
+        Runner->>Npm: npm ci (install dependencies)
+        Npm-->>Runner: Dependencies installed (with cache: ~30s)
+        Runner->>Runner: npm run build
+        Note over Runner: Building Docusaurus...<br/>Compiling MDX, bundling JS/CSS
+        Note over Runner: ✅ Build successful!<br/>No compilation errors
+        Runner->>Runner: npm test --if-present
+        Note over Runner: ✅ Tests passed!
+        Runner->>GH: Upload build artifacts
+    end
 
-    Main->>Dev: ✅ Auto-merged!
+    Note over Runner: build-and-test job completed ✅
+
+    rect rgb(102, 187, 106)
+        Note over Runner: Job 2: auto-merge (triggered)
+        Runner->>GH: Checkout code
+        Runner->>Runner: git config user (Actions Bot)
+        Runner->>GH: git fetch origin main & new
+        Runner->>Runner: git checkout main
+        Runner->>Runner: git merge --no-ff origin/new
+        Note over Runner: Creating merge commit
+        Runner->>Main: git push origin main
+        Note over Main: ✅ Main branch updated!
+        Runner->>GH: Create workflow summary
+    end
+
+    GH->>Dev: ✅ Email: Auto-merge successful!
+    Note over Dev: Feature is now live in main 🎉
 ```
 
-### Failed Build Flow
+### Failed Build Flow (Detailed)
 
 ```mermaid
 sequenceDiagram
-    participant Dev as Developer
-    participant GH as GitHub
-    participant Runner as GitHub Runner
+    participant Dev as 👨‍💻 Developer
+    participant GH as 🐙 GitHub
+    participant Runner as 🏃 GitHub Runner
 
+    Note over Dev: Developer pushes code with bug
     Dev->>GH: git push origin new
+
     GH->>Runner: Trigger workflow
 
-    Runner->>Runner: Checkout code
-    Runner->>Runner: Setup Node.js
-    Runner->>Runner: npm ci
-    Runner->>Runner: npm run build
-    Note over Runner: ❌ Build failed!
+    rect rgb(66, 165, 245)
+        Note over Runner: Job 1: build-and-test
+        Runner->>GH: Checkout code
+        Runner->>Runner: Setup Node.js 20
+        Runner->>Runner: npm ci
+        Runner->>Runner: npm run build
+        Note over Runner: ❌ Build failed!<br/>MDX compilation error<br/>Line 464: Unexpected character
+        Note over Runner: Process exited with code 1
+    end
 
-    Runner->>GH: Post comment on commit
-    GH->>Dev: ❌ Build failed notification
+    Note over Runner: build-and-test job failed ❌
+
+    rect rgb(239, 83, 80)
+        Note over Runner: Job 3: notify-failure (triggered)
+        Runner->>GH: Create commit comment<br/>via GitHub API
+        GH->>GH: Post comment on commit SHA
+    end
+
+    GH->>Dev: ❌ Email: Build failed notification
+    GH->>Dev: 📝 Commit comment with error details
+    Note over Dev: Developer sees error,<br/>fixes issue, pushes again
 ```
+
+### Workflow State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle: Repository waiting
+    Idle --> Triggered: Push to 'new' branch detected
+
+    state Triggered {
+        [*] --> Queued
+        Queued --> Running: Runner available
+    }
+
+    Running --> BuildAndTest: Start Job 1
+
+    state BuildAndTest {
+        [*] --> Checkout
+        Checkout --> SetupNode
+        SetupNode --> Install
+        Install --> Build
+        Build --> Test
+        Test --> Upload
+        Upload --> [*]
+    }
+
+    BuildAndTest --> CheckResult: Job completed
+
+    state CheckResult <<choice>>
+    CheckResult --> AutoMerge: if success()
+    CheckResult --> NotifyFailure: if failure()
+
+    state AutoMerge {
+        [*] --> ConfigGit
+        ConfigGit --> FetchBranches
+        FetchBranches --> MergeBranches
+        MergeBranches --> PushMain
+        PushMain --> Summary
+        Summary --> [*]
+    }
+
+    state NotifyFailure {
+        [*] --> CreateComment
+        CreateComment --> [*]
+    }
+
+    AutoMerge --> Success: Merged to main
+    NotifyFailure --> Failed: Developer notified
+
+    Success --> [*]: Workflow complete ✅
+    Failed --> [*]: Workflow complete ❌
+```
+
+### Parallel vs Sequential Execution
+
+```mermaid
+graph TB
+    subgraph "Our Workflow: Sequential Jobs (needs: build-and-test)"
+        S1[Job 1: Build & Test<br/>⏱️ 2-3 minutes]
+        S2{Success?}
+        S3A[Job 2: Auto-Merge<br/>⏱️ 15 seconds]
+        S3B[Job 3: Notify<br/>⏱️ 5 seconds]
+
+        S1 --> S2
+        S2 -->|Yes| S3A
+        S2 -->|No| S3B
+    end
+
+    subgraph "Alternative: Parallel Jobs (no needs)"
+        P1[Job 1: Build]
+        P2[Job 2: Lint]
+        P3[Job 3: Test]
+
+        START[Start] --> P1 & P2 & P3
+    end
+
+    style S1 fill:#42a5f5,color:#fff
+    style S3A fill:#66bb6a,color:#fff
+    style S3B fill:#ef5350,color:#fff
+    style P1 fill:#9575cd,color:#fff
+    style P2 fill:#9575cd,color:#fff
+    style P3 fill:#9575cd,color:#fff
+```
+
+**Why Sequential?**
+- ✅ Auto-merge only runs if build succeeds
+- ✅ No wasted resources merging broken code
+- ✅ Clear quality gates
+
+**When to Use Parallel?**
+- ⚡ Independent jobs (lint, test, build can run simultaneously)
+- ⚡ Faster total workflow time
+- ⚡ Better resource utilization
 
 ---
 
