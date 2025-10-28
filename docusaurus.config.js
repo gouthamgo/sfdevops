@@ -161,11 +161,40 @@ const config = {
       },
       mermaid: {
         theme: {
-          light: 'neutral',
+          light: 'base',
           dark: 'dark',
         },
         options: {
           maxTextSize: 50000,
+          themeVariables: {
+            // Light mode colors - high contrast
+            primaryColor: '#bbdefb',
+            primaryTextColor: '#000000',
+            primaryBorderColor: '#1976d2',
+            lineColor: '#424242',
+            secondaryColor: '#c8e6c9',
+            tertiaryColor: '#ffe0b2',
+            // Better text visibility
+            fontSize: '16px',
+            fontFamily: 'ui-sans-serif, system-ui, -apple-system',
+          },
+          darkMode: true,
+          themeCSS: `
+            .node rect,
+            .node circle,
+            .node ellipse,
+            .node polygon {
+              stroke-width: 2px;
+            }
+            .node .label {
+              color: #000000;
+            }
+            .edgeLabel {
+              background-color: rgba(255, 255, 255, 0.9);
+              padding: 4px;
+              border-radius: 4px;
+            }
+          `,
         },
       },
     }),
