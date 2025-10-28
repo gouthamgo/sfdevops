@@ -57,7 +57,16 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '4. Building Pipelines (Days 8-14)',
+      label: '4. Enterprise Sandbox Strategy',
+      items: [
+        'sandbox-strategy/index',
+        'sandbox-strategy/sandbox-types-overview',
+        'sandbox-strategy/architecture-design',
+      ],
+    },
+    {
+      type: 'category',
+      label: '5. Building Pipelines (Days 8-14)',
       items: [
         'pipelines/gitlab-basics',
         'pipelines/authenticating-orgs',
@@ -70,7 +79,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '5. Real-World Scenarios (Days 15-21)',
+      label: '6. Real-World Scenarios (Days 15-21)',
       items: [
         'scenarios/multi-team-coordination',
         'scenarios/managing-dependencies',
@@ -83,7 +92,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '6. Advanced Topics (Days 22-30)',
+      label: '7. Advanced Topics (Days 22-30)',
       items: [
         'advanced/custom-runners-docker',
         'advanced/complex-org-strategies',
