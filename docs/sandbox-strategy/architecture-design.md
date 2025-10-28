@@ -461,7 +461,7 @@ ROI: 31% return on investment
 **Success Metrics:**
 - Complete pipeline working
 - Deployment frequency: Weekly
-- Failure rate: <15%
+- Failure rate: less than 15%
 
 ## Quick Check
 
@@ -481,9 +481,9 @@ Before moving on, make sure you can answer:
 
 ## Next Steps
 
-Architecture designed! Now let's manage the data strategy across all these sandboxes.
+Architecture designed! Now you're ready to understand data management strategies across all these sandboxes.
 
-**Continue to:** [Data Management Across Sandboxes](./data-management)
+**Coming Soon:** Data Management Across Sandboxes - Learn how to handle data templates, masking, and refresh strategies.
 
 ## Additional Resources
 
