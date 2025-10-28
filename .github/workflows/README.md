@@ -135,3 +135,18 @@ This CI/CD setup is a great talking point for DevOps Lead interviews at Australi
 4. Notifies if there are issues
 
 This reduces deployment time from hours to minutes and eliminates manual merge errors. Similar to what we'll need at Australia Post for Salesforce deployments across multiple teams."
+
+## Learn More
+
+**New to GitHub Actions?** Check out our comprehensive beginner tutorial:
+
+📚 **[GitHub Actions for Beginners](../../docs/pipelines/github-actions-beginner.md)**
+
+This tutorial uses this exact auto-merge workflow as a teaching example, breaking down:
+- Core concepts (workflows, jobs, steps, actions)
+- How each part works
+- Real problems we solved (permissions, MDX errors, broken links)
+- Interview talking points
+- Hands-on exercises
+
+Perfect for DevOps Lead interview preparation!

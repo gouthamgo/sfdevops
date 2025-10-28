@@ -68,6 +68,7 @@ const sidebars = {
       type: 'category',
       label: '5. Building Pipelines (Days 8-14)',
       items: [
+        'pipelines/github-actions-beginner',
         'pipelines/gitlab-basics',
         'pipelines/authenticating-orgs',
         'pipelines/running-tests',
