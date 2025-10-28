@@ -1,0 +1,184 @@
+/**
+ * Custom Mermaid diagram styling for better visibility
+ */
+
+/* Ensure all shapes have visible borders */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid .node path {
+  stroke-width: 3px !important;
+  stroke: #1a1a1a !important;
+}
+
+/* Make text more visible in light mode */
+html[data-theme='light'] .mermaid .node .label,
+html[data-theme='light'] .mermaid .nodeLabel {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Make text visible in dark mode */
+html[data-theme='dark'] .mermaid .node .label,
+html[data-theme='dark'] .mermaid .nodeLabel {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Edge labels (text on arrows) */
+.mermaid .edgeLabel {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid #333 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme='dark'] .mermaid .edgeLabel {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  color: #ffffff !important;
+  border: 1px solid #666 !important;
+}
+
+/* Arrow lines */
+.mermaid .flowchart-link,
+.mermaid path.path {
+  stroke: #1a1a1a !important;
+  stroke-width: 2.5px !important;
+}
+
+html[data-theme='dark'] .mermaid .flowchart-link,
+html[data-theme='dark'] .mermaid path.path {
+  stroke: #cccccc !important;
+}
+
+/* Subgraph borders */
+.mermaid .cluster rect {
+  stroke-width: 2px !important;
+  stroke: #1976d2 !important;
+  fill: rgba(187, 222, 251, 0.15) !important;
+}
+
+html[data-theme='dark'] .mermaid .cluster rect {
+  stroke: #64b5f6 !important;
+  fill: rgba(30, 136, 229, 0.15) !important;
+}
+
+/* Subgraph labels */
+.mermaid .cluster-label {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #1976d2 !important;
+}
+
+html[data-theme='dark'] .mermaid .cluster-label {
+  color: #64b5f6 !important;
+}
+
+/* Increase overall diagram font size */
+.mermaid {
+  font-size: 15px !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Decision diamonds */
+.mermaid .node.decision polygon {
+  stroke-width: 3px !important;
+}
+
+/* Note boxes */
+.mermaid .note {
+  stroke-width: 2px !important;
+  stroke: #ff9800 !important;
+}
+
+/* Sequence diagram styling */
+.mermaid .actor {
+  stroke-width: 2px !important;
+  stroke: #1a1a1a !important;
+}
+
+html[data-theme='dark'] .mermaid .actor {
+  stroke: #cccccc !important;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke-width: 2px !important;
+  stroke: #1a1a1a !important;
+}
+
+html[data-theme='dark'] .mermaid .messageLine0,
+html[data-theme='dark'] .mermaid .messageLine1 {
+  stroke: #cccccc !important;
+}
+
+/* State diagram styling */
+.mermaid .stateGroup rect {
+  stroke-width: 2px !important;
+}
+
+/* Gantt chart styling */
+.mermaid .grid .tick line {
+  stroke: #e0e0e0 !important;
+}
+
+html[data-theme='dark'] .mermaid .grid .tick line {
+  stroke: #424242 !important;
+}
+
+.mermaid .today {
+  fill: rgba(255, 193, 7, 0.3) !important;
+  stroke: #ffa000 !important;
+  stroke-width: 2px !important;
+}
+
+/* Ensure colored boxes remain visible */
+.mermaid [style*="fill:#42a5f5"] {
+  fill: #42a5f5 !important;
+}
+
+.mermaid [style*="fill:#66bb6a"] {
+  fill: #66bb6a !important;
+}
+
+.mermaid [style*="fill:#ef5350"] {
+  fill: #ef5350 !important;
+}
+
+.mermaid [style*="fill:#9575cd"] {
+  fill: #9575cd !important;
+}
+
+.mermaid [style*="fill:#ffa726"] {
+  fill: #ffa726 !important;
+}
+
+.mermaid [style*="fill:#4caf50"] {
+  fill: #4caf50 !important;
+}
+
+/* Better contrast for light backgrounds */
+html[data-theme='light'] .mermaid [style*="fill:#66bb6a"] text,
+html[data-theme='light'] .mermaid [style*="fill:#4caf50"] text {
+  fill: #1b5e20 !important;
+}
+
+html[data-theme='light'] .mermaid [style*="fill:#42a5f5"] text {
+  fill: #0d47a1 !important;
+}
+
+html[data-theme='light'] .mermaid [style*="fill:#ef5350"] text {
+  fill: #b71c1c !important;
+}
+
+html[data-theme='light'] .mermaid [style*="fill:#9575cd"] text {
+  fill: #4a148c !important;
+}
+
+html[data-theme='light'] .mermaid [style*="fill:#ffa726"] text {
+  fill: #e65100 !important;
+}
