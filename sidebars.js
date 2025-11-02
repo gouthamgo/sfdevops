@@ -28,6 +28,10 @@ const sidebars = {
         'foundations/cicd-concepts',
         'foundations/automated-testing',
         'foundations/dev-environment-setup',
+        'foundations/docker-containers',
+        'foundations/kubernetes-basics',
+        'foundations/infrastructure-as-code',
+        'foundations/devops-tools-ecosystem',
       ],
     },
     {
