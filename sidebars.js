@@ -108,6 +108,34 @@ const sidebars = {
         'advanced/monitoring-improvement',
       ],
     },
+    {
+      type: 'category',
+      label: '8. Hands-On Practice',
+      items: [
+        'hands-on/labs-exercises',
+      ],
+    },
+    {
+      type: 'category',
+      label: '9. Quick Reference',
+      items: [
+        'reference/cheat-sheets',
+      ],
+    },
+    {
+      type: 'category',
+      label: '10. Case Studies',
+      items: [
+        'case-studies/real-world-implementations',
+      ],
+    },
+    {
+      type: 'category',
+      label: '11. Certifications',
+      items: [
+        'certifications/certification-guide',
+      ],
+    },
   ],
 };
 
