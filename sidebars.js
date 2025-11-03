@@ -42,6 +42,7 @@ const sidebars = {
         'interview-prep/git-branching-strategies',
         'interview-prep/complete-git-workflow',
         'interview-prep/technical-interview-questions',
+        'interview-prep/technical-scenarios',
         'interview-prep/portfolio-strategy',
         'interview-prep/behavioral-interview-prep',
         'interview-prep/faang-devops-prep',
