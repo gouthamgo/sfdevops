@@ -44,6 +44,7 @@ const sidebars = {
         'interview-prep/technical-interview-questions',
         'interview-prep/portfolio-strategy',
         'interview-prep/behavioral-interview-prep',
+        'interview-prep/faang-devops-prep',
       ],
     },
     {
