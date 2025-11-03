@@ -42,7 +42,7 @@ graph TB
 | Aspect | Regular DevOps | FAANG DevOps/SRE |
 |--------|---------------|------------------|
 | **Scale** | Thousands of users | Millions/billions of users |
-| **Availability** | 99.9% (8h downtime/year) | 99.99%+ (<1h downtime/year) |
+| **Availability** | 99.9% (8h downtime/year) | 99.99%+ (less than 1h downtime/year) |
 | **Coding** | Basic scripting | Production-grade code |
 | **Systems** | Monolithic/small microservices | Distributed systems at scale |
 | **Monitoring** | Basic metrics | Full observability stack |
