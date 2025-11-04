@@ -6,7 +6,7 @@
 
 ## The Problem: Manual Deployments Don't Scale
 
-Picture this scenario at Australia Post: You have 50 developers across 5 teams. The Sales team just finished a major opportunity management feature. Service team updated case routing. Integration team added a new API endpoint. All three teams need to deploy this week.
+Picture this scenario at Acme Corp: You have 50 developers across 5 teams. The Sales team just finished a major opportunity management feature. Service team updated case routing. Integration team added a new API endpoint. All three teams need to deploy this week.
 
 Without automation, here's what happens:
 - Each team manually creates change sets
@@ -51,7 +51,7 @@ All are valid choices. But GitLab has advantages for enterprise Salesforce deplo
 
 **All-in-one platform**: Git repository + CI/CD + container registry + security scanning in one tool.
 
-**Strong in Australia**: Many Australian enterprises (like Australia Post) use GitLab for regulatory and data sovereignty reasons.
+**Enterprise adoption**: Many enterprises (like Acme Corp) use GitLab for regulatory and data sovereignty reasons.
 
 That said, the concepts you'll learn here apply to any CI/CD platform. The YAML syntax is similar across tools.
 
@@ -328,9 +328,9 @@ curl -X POST \
 
 ---
 
-## Real-World Pipeline for Australia Post
+## Real-World Pipeline for Acme Corp
 
-Let's design a realistic pipeline for Australia Post's Salesforce deployment needs.
+Let's design a realistic pipeline for Acme Corp's Salesforce deployment needs.
 
 **Requirements**:
 - 50 developers across 5 teams
@@ -343,7 +343,7 @@ Let's design a realistic pipeline for Australia Post's Salesforce deployment nee
 Here's the complete pipeline:
 
 ```yaml
-# .gitlab-ci.yml - Australia Post Salesforce Pipeline
+# .gitlab-ci.yml - Acme Corp Salesforce Pipeline
 
 image: salesforce/cli:latest-full
 
@@ -461,7 +461,7 @@ deploy_to_sit:
   <<: *auth_template
   environment:
     name: SIT
-    url: https://auspost--sit.sandbox.my.salesforce.com
+    url: https://acmecorp--sit.sandbox.my.salesforce.com
   script:
     - echo "Deploying to SIT environment..."
     - sf project deploy start --source-dir force-app --target-org target-org --test-level RunLocalTests --wait $DEPLOYMENT_TIMEOUT
@@ -474,7 +474,7 @@ deploy_to_uat:
   <<: *auth_template
   environment:
     name: UAT
-    url: https://auspost--uat.sandbox.my.salesforce.com
+    url: https://acmecorp--uat.sandbox.my.salesforce.com
   script:
     - echo "Deploying to UAT environment..."
     - sf project deploy start --source-dir force-app --target-org target-org --test-level RunLocalTests --wait $DEPLOYMENT_TIMEOUT
@@ -487,7 +487,7 @@ deploy_to_staging:
   <<: *auth_template
   environment:
     name: Staging
-    url: https://auspost--staging.sandbox.my.salesforce.com
+    url: https://acmecorp--staging.sandbox.my.salesforce.com
   script:
     - echo "Deploying to Staging environment..."
     - sf project deploy start --source-dir force-app --target-org target-org --test-level RunLocalTests --wait $DEPLOYMENT_TIMEOUT
@@ -500,7 +500,7 @@ deploy_to_production:
   <<: *auth_template
   environment:
     name: Production
-    url: https://auspost.my.salesforce.com
+    url: https://acmecorp.my.salesforce.com
   script:
     - echo "🚀 PRODUCTION DEPLOYMENT STARTING..."
     - echo "Deploying to PRODUCTION with full test suite..."
@@ -562,7 +562,7 @@ notify_failure:
 
 ---
 
-## Understanding the Australia Post Pipeline
+## Understanding the Acme Corp Pipeline
 
 Let's break down the key features of this production-ready pipeline:
 
@@ -587,7 +587,7 @@ validate → test → quality → deploy-lower → deploy-uat → deploy-product
 
 Each stage must pass before the next begins. This creates a "quality gate" system.
 
-**For Australia Post**:
+**For Acme Corp**:
 - Merge requests trigger validation, tests, and quality checks
 - Merges to `develop` automatically deploy to SIT
 - Merges to `main` allow manual deployment to UAT
@@ -612,7 +612,7 @@ This script extracts the coverage percentage and fails the job if it's below 75%
 ```yaml
 environment:
   name: UAT
-  url: https://auspost--uat.sandbox.my.salesforce.com
+  url: https://acmecorp--uat.sandbox.my.salesforce.com
 ```
 
 GitLab tracks which commits are deployed to which environments. You can see deployment history in the GitLab UI.
@@ -625,7 +625,7 @@ when: manual
 
 Production deployments require someone to click "Deploy" in GitLab. This prevents accidental production deployments.
 
-**For Australia Post**: The DevOps Lead (you!) reviews the changes, confirms with stakeholders, then triggers production deployment during a maintenance window.
+**For Acme Corp**: The DevOps Lead (you!) reviews the changes, confirms with stakeholders, then triggers production deployment during a maintenance window.
 
 ---
 
@@ -873,7 +873,7 @@ script:
 
 ---
 
-## Why This Matters for Australia Post
+## Why This Matters for Acme Corp
 
 Let's connect this to real-world impact:
 
@@ -901,7 +901,7 @@ Let's connect this to real-world impact:
 
 **Benefit**: ~50 hours/month saved, 70% fewer production incidents, faster feature delivery.
 
-**ROI for Australia Post**: At 50 developers, this saves approximately $15,000/month in efficiency gains and incident reduction.
+**ROI for Acme Corp**: At 50 developers, this saves approximately $15,000/month in efficiency gains and incident reduction.
 
 ---
 
@@ -1144,9 +1144,9 @@ Plus: Configure environment-specific approvals in GitLab UI.
 | Self-hosted option | Yes | Yes (paid) | Yes |
 | Learning curve | Moderate | Easy | Steep |
 | Salesforce plugins | Not needed (use CLI) | Not needed (use CLI) | Available |
-| Australian data centers | Yes | Limited | Self-host |
+| Data sovereignty options | Yes | Limited | Self-host |
 
-**For Australia Post**: GitLab is a strong choice due to self-hosting options (data sovereignty), mature enterprise features, and built-in integration with repository.
+**For Acme Corp**: GitLab is a strong choice due to self-hosting options (data sovereignty), mature enterprise features, and built-in integration with repository.
 
 ---
 
@@ -1273,6 +1273,6 @@ GitLab CI/CD automates your Salesforce deployment workflow:
 6. Deploy to multiple environments with manual approvals
 7. Track deployments and notify teams
 
-For Australia Post with 50 developers, this transforms deployment from manual, error-prone process to automated, consistent, traceable system.
+For Acme Corp with 50 developers, this transforms deployment from manual, error-prone process to automated, consistent, traceable system.
 
 Master this foundation. Everything else builds on it.

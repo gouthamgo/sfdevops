@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Designing Your Enterprise Sandbox Architecture
-description: Complete 62-sandbox architecture design for Australia Post
+description: Complete 62-sandbox architecture design for Acme Corp
 ---
 
 # Designing Your Enterprise Sandbox Architecture
@@ -10,7 +10,7 @@ description: Complete 62-sandbox architecture design for Australia Post
 
 Design a complete enterprise sandbox strategy for multiple teams with 50+ developers.
 
-## The Australia Post Scenario
+## The Acme Corp Scenario
 
 **Your mission as new DevOps Lead:**
 

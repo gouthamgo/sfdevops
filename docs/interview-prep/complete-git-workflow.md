@@ -1,6 +1,6 @@
 # Your Complete Daily Git Workflow
 
-**Learning Objective**: Master the Git workflow you'll use every single day as a DevOps professional at Australia Post.
+**Learning Objective**: Master the Git workflow you'll use every single day as a DevOps professional at Acme Corp.
 
 ---
 
@@ -734,7 +734,7 @@ git blame <file>                     # See who changed each line
 >
 > Then I have two options: merge or rebase. I'd use `git checkout feature-branch && git merge main` to bring main's changes in. This creates a merge commit showing when I integrated the changes.
 >
-> Alternatively, `git rebase main` would replay my feature commits on top of the latest main, creating a cleaner history but rewriting my commits. At Australia Post, I'd check the team's preference—some teams prefer merge commits for the audit trail, others prefer the clean history from rebase.
+> Alternatively, `git rebase main` would replay my feature commits on top of the latest main, creating a cleaner history but rewriting my commits. At Acme Corp, I'd check the team's preference—some teams prefer merge commits for the audit trail, others prefer the clean history from rebase.
 >
 > If there are conflicts, I'd resolve them carefully, test thoroughly, and push. The key is to sync regularly—every 1-2 days—so divergence doesn't become a problem."
 
@@ -800,7 +800,7 @@ You've mastered branching strategies and daily workflow. Now let's prepare for t
 - CI/CD pipeline design
 - Troubleshooting production issues
 - Architecture and best practices
-- Questions specific to enterprise Salesforce (like Australia Post)
+- Questions specific to enterprise Salesforce (like Acme Corp)
 
 These are questions you WILL be asked. Let's prepare strong answers.
 

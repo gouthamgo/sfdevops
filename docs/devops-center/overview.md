@@ -112,9 +112,9 @@ graph TB
 - **Very large scale with complex orchestration** - Hundreds of components
 - **Team already has strong CI/CD expertise** - Better to leverage existing skills
 
-## Australia Post Context
+## Acme Corp Context
 
-Given that Australia Post is:
+Given that Acme Corp is:
 - Large enterprise with multiple teams
 - Introducing new tech (MuleSoft, Agentforce, Data Cloud)
 - Creating a NEW DevOps role (you)

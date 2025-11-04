@@ -6,7 +6,7 @@
 
 ## The Branching Problem
 
-It's your first week at Australia Post as DevOps Lead. You're in a meeting with the Platform Team Lead.
+It's your first week at Acme Corp as DevOps Lead. You're in a meeting with the Platform Team Lead.
 
 **Platform Lead**: "We have 50 developers across 5 teams. Sales Cloud, Service Cloud, Community Cloud, Marketing Cloud, and Platform team. Everyone's committing to the same repository. It's chaos."
 
@@ -212,7 +212,7 @@ git branch -d hotfix/fix-null-pointer-case-trigger
 - Large teams (10+ developers)
 - Multiple products/versions supported simultaneously
 - Enterprise environments with formal release processes
-- **Australia Post scenario** (scheduled release windows, multiple teams, compliance requirements)
+- **Acme Corp scenario** (scheduled release windows, multiple teams, compliance requirements)
 
 ---
 
@@ -338,7 +338,7 @@ git commit -m "Add scoring logic (behind feature flag)"
 - Small, experienced teams (Google, Facebook use this)
 - Web applications with rapid iteration
 - When you have feature flag infrastructure
-- **NOT ideal for Australia Post** (enterprise needs more structure)
+- **NOT ideal for Acme Corp** (enterprise needs more structure)
 
 ---
 
@@ -441,7 +441,7 @@ git push origin main --tags
 - Continuous delivery (deploy when features complete)
 - Projects with independent features
 - Teams comfortable with Git
-- **Could work for Australia Post** with some additions
+- **Could work for Acme Corp** with some additions
 
 ---
 
@@ -570,7 +570,7 @@ git push origin integration
 - Regulated industries (finance, healthcare, government)
 - Scheduled release windows
 - Teams transitioning from change sets to DevOps
-- **EXCELLENT for Australia Post** (matches their environment structure)
+- **EXCELLENT for Acme Corp** (matches their environment structure)
 
 ---
 
@@ -589,7 +589,7 @@ git push origin integration
 | **Hotfix Process** | Clear process | Deploy immediately | Direct to main | Through all branches |
 | **Compliance/Audit** | Excellent | Moderate | Good | Excellent |
 | **Parallel Features** | Excellent | Good | Moderate | Good |
-| **Australia Post Fit** | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **Acme Corp Fit** | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
 ### Decision Tree
 
@@ -611,7 +611,7 @@ git push origin integration
 - Yes → GitFlow
 - No → Feature Branch Workflow
 
-### Australia Post Recommendation
+### Acme Corp Recommendation
 
 **Recommended Strategy**: **Environment-Based Branching with GitFlow elements**
 
@@ -630,7 +630,7 @@ git push origin integration
 - Release tags on production merges
 
 **Interview Answer**:
-> "For Australia Post, I'd recommend Environment-Based Branching because it aligns with the existing sandbox progression and provides the audit trail required for government compliance. We'd have long-lived branches matching our environments—integration, UAT, and production—with features promoted through each. This gives us clear approval gates and supports the scheduled release windows needed for a large enterprise. I'd incorporate GitFlow's hotfix branch model for emergency production fixes."
+> "For Acme Corp, I'd recommend Environment-Based Branching because it aligns with the existing sandbox progression and provides the audit trail required for government compliance. We'd have long-lived branches matching our environments—integration, UAT, and production—with features promoted through each. This gives us clear approval gates and supports the scheduled release windows needed for a large enterprise. I'd incorporate GitFlow's hotfix branch model for emergency production fixes."
 
 ---
 
@@ -819,7 +819,7 @@ git log --oneline --graph --all --decorate
 **Strong Answer** ✅:
 > "GitFlow is a branching model with five branch types designed for scheduled releases. You have two long-lived branches—main for production and develop for integration. Features branch from develop, and when you're ready to release, you create a release branch from develop for final testing and bug fixes. Once approved, that merges to both main and develop, with main tagged for the version number. Hotfixes branch from main and merge back to both main and develop.
 >
-> I'd use GitFlow when you have scheduled releases—monthly or quarterly—and need clear structure for coordinating multiple teams. It's excellent for enterprise environments like Australia Post where you need audit trails and formal release processes. The trade-off is complexity; for continuous deployment or small teams, it's overkill."
+> I'd use GitFlow when you have scheduled releases—monthly or quarterly—and need clear structure for coordinating multiple teams. It's excellent for enterprise environments like Acme Corp where you need audit trails and formal release processes. The trade-off is complexity; for continuous deployment or small teams, it's overkill."
 
 ### Question 2: GitFlow vs Feature Branch Workflow
 
@@ -830,7 +830,7 @@ git log --oneline --graph --all --decorate
 >
 > GitFlow supports parallel development of the current release in `develop` while `main` stays stable. It's better for scheduled releases. Feature Branch Workflow is simpler and works well for continuous delivery where you deploy features as soon as they're ready.
 >
-> If Australia Post needs to coordinate multiple teams and test everything together in UAT before a monthly release, GitFlow makes sense. If we were deploying individual features as they complete, Feature Branch Workflow would be sufficient."
+> If Acme Corp needs to coordinate multiple teams and test everything together in UAT before a monthly release, GitFlow makes sense. If we were deploying individual features as they complete, Feature Branch Workflow would be sufficient."
 
 ### Question 3: Handling Merge Conflicts
 
@@ -966,7 +966,7 @@ git push origin integration --force
 
 ✅ **Environment-Based Branching** = Branches mirror Salesforce environments, excellent for traditional Salesforce DevOps
 
-✅ **Australia Post fit** = Environment-Based with GitFlow elements for structure + compliance
+✅ **Acme Corp fit** = Environment-Based with GitFlow elements for structure + compliance
 
 ✅ **Choose based on**: Team size, release frequency, Salesforce environment structure, compliance needs
 
@@ -985,7 +985,7 @@ You understand the strategies. Now let's see what your actual daily work looks l
 - Code review workflow
 - Handling merge conflicts
 - Deployment through environments
-- Real-world scenarios you'll face at Australia Post
+- Real-world scenarios you'll face at Acme Corp
 
 This is the workflow you'll use every single day as DevOps Lead.
 

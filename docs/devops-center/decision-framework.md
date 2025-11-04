@@ -8,11 +8,11 @@ description: When to use DevOps Center vs Custom CI/CD
 
 ## Learning Objective
 
-Make informed decisions about which DevOps approach to use for different scenarios at Australia Post.
+Make informed decisions about which DevOps approach to use for different scenarios at Acme Corp.
 
 ## The DevOps Leader's Decision Matrix
 
-As DevOps Lead at Australia Post, you'll face this question constantly: **"Which tool should we use for this project?"** Here's how to decide.
+As DevOps Lead at Acme Corp, you'll face this question constantly: **"Which tool should we use for this project?"** Here's how to decide.
 
 ### Comprehensive Decision Flowchart
 
@@ -63,7 +63,7 @@ graph TD
 | **Scheduled maintenance deployment** | ⭐⭐ Good | ⭐⭐⭐ Best | ⭐⭐⭐ Best | ❌ No |
 | **Admin learning DevOps** | ⭐⭐⭐ Best | ⭐ Hard | ⭐ Hard | ⭐⭐ Familiar |
 
-## Real-World Australia Post Scenarios
+## Real-World Acme Corp Scenarios
 
 ### Scenario A: Sales Cloud - Add Custom Field to Opportunity
 
@@ -232,7 +232,7 @@ For every project, ask these questions:
 □ Unknown? → DevOps Center, migrate later if needed
 ```
 
-## Building Your DevOps Strategy (Australia Post Example)
+## Building Your DevOps Strategy (Acme Corp Example)
 
 As the NEW DevOps Lead, here's a recommended rollout:
 
@@ -355,7 +355,7 @@ Plus: Fewer errors, faster time to market
 
 **2. Project Complexity** - Simple metadata changes work great in DevOps Center. Complex multi-system integrations need GitLab or GitHub Actions.
 
-**3. Scalability Needs** - For a new DevOps practice at Australia Post, I'd start with DevOps Center for quick wins and team buy-in, then layer in custom CI/CD as needs grow.
+**3. Scalability Needs** - For a new DevOps practice at Acme Corp, I'd start with DevOps Center for quick wins and team buy-in, then layer in custom CI/CD as needs grow.
 
 **4. Existing Infrastructure** - The job description mentions GitLab, so I'd leverage that investment while also using DevOps Center where appropriate.
 
@@ -363,7 +363,7 @@ My strategy would be **pragmatic: right tool for the right job**, not one-size-f
 
 ### Even Better Answer (Shows Strategic Thinking)
 
-"I'd take a phased approach aligned with Australia Post's maturity:
+"I'd take a phased approach aligned with Acme Corp's maturity:
 
 **Phase 1 (Months 1-3): Foundation**
 - Start with DevOps Center for Sales and Service Cloud
@@ -382,7 +382,7 @@ My strategy would be **pragmatic: right tool for the right job**, not one-size-f
 
 This balances **immediate value** (DevOps Center) with **long-term scalability** (GitLab), while building team capabilities incrementally."
 
-## Final Recommendation for Australia Post
+## Final Recommendation for Acme Corp
 
 ### Primary: DevOps Center (70% of Deployments)
 
@@ -462,7 +462,7 @@ Before moving on, make sure you can answer:
 2. **How do you decide for a hybrid approach?**
    - Answer: When you have mixed team (admins + developers), moderate complexity, or need different tools for different parts of the system. Let each team use their strengths.
 
-3. **What's your strategy for Australia Post's first 6 months?**
+3. **What's your strategy for Acme Corp's first 6 months?**
    - Answer: Start with DevOps Center for quick wins (Months 1-3), add GitLab for complex scenarios (Months 4-6), focus on team training and adoption throughout.
 
 4. **How do you measure success?**
@@ -489,4 +489,4 @@ Or explore related topics:
 - [Salesforce DevOps Center Documentation](https://help.salesforce.com/s/articleView?id=sf.devops_center.htm)
 - [DevOps Decision Framework Template (Download)](https://trailhead.salesforce.com/sample-decision-framework)
 - [DORA Metrics for Salesforce](https://developer.salesforce.com/blogs/2023/03/measuring-devops-success-with-dora-metrics)
-- [Australia Post Tech Blog](https://techblog.auspost.com.au/) (if available)
+- [Acme Corp Tech Blog](https://techblog.acmecorp.com/) (if available)
