@@ -43,9 +43,13 @@ const sidebars = {
         'interview-prep/complete-git-workflow',
         'interview-prep/technical-interview-questions',
         'interview-prep/technical-scenarios',
+        'interview-prep/system-design-prep',
+        'interview-prep/take-home-assignments',
         'interview-prep/portfolio-strategy',
         'interview-prep/behavioral-interview-prep',
         'interview-prep/faang-devops-prep',
+        'interview-prep/salary-negotiation',
+        'interview-prep/career-progression',
       ],
     },
     {
