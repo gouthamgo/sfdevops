@@ -21,7 +21,7 @@ This content is designed for:
 
 - Salesforce developers wanting to transition into DevOps roles
 - Junior DevOps engineers specializing in Salesforce
-- Anyone preparing for DevOps Lead positions (like Australia Post)
+- Anyone preparing for DevOps Lead positions (like Acme Corp)
 
 No prior DevOps experience required. We start from the basics and build up systematically.
 

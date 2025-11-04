@@ -360,9 +360,9 @@ graph TB
 | **Custom Scripts** | ❌ No | ✅ Yes | ✅ Yes |
 | **Multi-platform** | ❌ No | ✅ Yes | ✅ Yes |
 
-## Australia Post Consideration
+## Acme Corp Consideration
 
-Australia Post likely uses GitLab (mentioned in job description). But GitHub might be used for:
+Acme Corp likely uses GitLab (mentioned in job description). But GitHub might be used for:
 - Open source contributions
 - Specific project teams
 - Acquisitions/subsidiaries using different tools

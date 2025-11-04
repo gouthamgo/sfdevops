@@ -6,15 +6,15 @@ description: Master Salesforce's native DevOps tooling and GitHub integration
 
 # DevOps Center & GitHub Integration
 
-## Why This Section Matters for Australia Post
+## Why This Section Matters for Acme Corp
 
-As the **NEW DevOps Lead at Australia Post**, you need to understand Salesforce's native DevOps tooling. The job description mentions:
+As the **NEW DevOps Lead at Acme Corp**, you need to understand Salesforce's native DevOps tooling. The job description mentions:
 - Implementing DevOps practices
 - Managing deployments across environments
 - Using GitLab (but GitHub knowledge shows breadth)
 - Supporting multiple teams with varying technical skills
 
-**DevOps Center is Salesforce's answer to DevOps without code.** You'll likely use BOTH DevOps Center and GitLab CI/CD at Australia Post.
+**DevOps Center is Salesforce's answer to DevOps without code.** You'll likely use BOTH DevOps Center and GitLab CI/CD at Acme Corp.
 
 ## What You'll Learn
 
@@ -136,7 +136,7 @@ DevOps Center & GitHub Integration
 │
 └── 6. Decision Framework
     ├── When to use what
-    ├── Real Australia Post scenarios
+    ├── Real Acme Corp scenarios
     ├── Cost comparison
     ├── Rollout strategy
     └── Interview answers
@@ -164,9 +164,9 @@ DevOps Center & GitHub Integration
 - **Team Collaboration** - Multiple developers, same work item
 - **Backporting** - Keeping environments in sync
 
-## Real-World Context: Australia Post
+## Real-World Context: Acme Corp
 
-Throughout this section, examples are tailored to Australia Post's context:
+Throughout this section, examples are tailored to Acme Corp's context:
 
 **Technology Stack (from job description):**
 - Salesforce (Sales Cloud, Service Cloud)
@@ -218,7 +218,7 @@ After completing this section, you should be able to:
 ### Interview Readiness
 - [ ] Answer: "When would you use DevOps Center?"
 - [ ] Answer: "How do you handle merge conflicts?"
-- [ ] Answer: "Describe your DevOps strategy for Australia Post"
+- [ ] Answer: "Describe your DevOps strategy for Acme Corp"
 - [ ] Answer: "What's your hotfix process?"
 - [ ] Demonstrate strategic thinking about DevOps tooling
 
@@ -319,7 +319,7 @@ Create a decision framework document showing:
 As you work through this section, keep notes on:
 - What concepts were unclear?
 - What examples helped most?
-- What's missing for Australia Post context?
+- What's missing for Acme Corp context?
 - What would you teach differently?
 
 **These notes become interview stories!**

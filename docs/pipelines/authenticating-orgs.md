@@ -6,7 +6,7 @@
 
 ## The Authentication Challenge
 
-Here's a common scenario at Australia Post: You've built a beautiful GitLab pipeline that validates metadata, runs tests, and deploys to multiple environments. You commit your code, the pipeline triggers, and... it fails immediately.
+Here's a common scenario at Acme Corp: You've built a beautiful GitLab pipeline that validates metadata, runs tests, and deploys to multiple environments. You commit your code, the pipeline triggers, and... it fails immediately.
 
 ```
 Error: No authenticated orgs found.
@@ -69,7 +69,7 @@ There are three main ways to authenticate Salesforce orgs in CI/CD pipelines:
 
 **Why not for pipelines**: Requires human interaction (clicking "Allow"), doesn't work in automated environments.
 
-**For Australia Post, we'll use**:
+**For Acme Corp, we'll use**:
 - **JWT Bearer Flow** for Production and UAT (most secure)
 - **SFDX Auth URL** for lower environments (faster setup)
 
@@ -195,7 +195,7 @@ Also add the Consumer Key:
 And the username:
 
 - **Key**: `SF_USERNAME`
-- **Value**: `cicd@australiapost.com.au` (the pre-authorized user)
+- **Value**: `cicd@australiapost.com` (the pre-authorized user)
 - **Type**: Variable
 - **Protected**: No (not sensitive)
 - **Masked**: No
@@ -341,7 +341,7 @@ deploy_to_uat:
 
 ## Multi-Environment Authentication Strategy
 
-For Australia Post with multiple environments, here's the complete strategy:
+For Acme Corp with multiple environments, here's the complete strategy:
 
 ### Environment Structure
 
@@ -420,7 +420,7 @@ deploy_to_staging:
   <<: *auth_jwt
   variables:
     SF_USERNAME: $SF_USERNAME_STAGING
-    SF_INSTANCE_URL: https://auspost--staging.sandbox.my.salesforce.com
+    SF_INSTANCE_URL: https://acmecorp--staging.sandbox.my.salesforce.com
   script:
     - sf project deploy start --source-dir force-app --target-org target-org --test-level RunLocalTests
   only:
@@ -441,7 +441,7 @@ deploy_to_production:
   when: manual
   environment:
     name: production
-    url: https://auspost.my.salesforce.com
+    url: https://acmecorp.my.salesforce.com
 ```
 
 ---
@@ -484,7 +484,7 @@ This follows the principle of least privilege: the CI/CD user can deploy but has
 
 Best practice: Create a dedicated user for CI/CD:
 
-- Username: `cicd@australiapost.com.au`
+- Username: `cicd@australiapost.com`
 - Profile: Custom profile with minimum permissions + CI/CD permission set
 - Password: Complex, stored in password manager
 - Login IP Ranges: Restrict if possible (or use IP relaxation)
@@ -647,7 +647,7 @@ Review Salesforce login history:
 
 ---
 
-## Why This Matters for Australia Post
+## Why This Matters for Acme Corp
 
 ### Security at Scale
 
@@ -667,15 +667,15 @@ With 50 developers, credential management becomes critical:
 
 ### Compliance Requirements
 
-Australia Post likely has compliance requirements:
+Acme Corp likely has compliance requirements:
 - **ISO 27001**: Secure credential storage
 - **SOC 2**: Audit trails for all deployments
-- **Data sovereignty**: Credentials stay in Australia (GitLab self-hosted)
+- **Data sovereignty**: Credentials stay within your region (GitLab self-hosted)
 
 JWT authentication helps meet these requirements:
 - Credentials never in source code (ISO 27001)
 - Every deployment logged (SOC 2)
-- Private keys stored in Australian GitLab instance (data sovereignty)
+- Private keys stored in self-hosted GitLab instance (data sovereignty)
 
 ### Incident Response
 
@@ -849,7 +849,7 @@ Commit and push. The pipeline should authenticate successfully.
 | IP Restrictions | Can relax | Can relax | Requires whitelisting |
 | Credential Rotation | Annual (cert renewal) | Quarterly (regenerate) | Per session |
 
-**Australia Post Recommendation**: JWT for production/staging, Auth URL for lower environments.
+**Acme Corp Recommendation**: JWT for production/staging, Auth URL for lower environments.
 
 ---
 
@@ -1076,6 +1076,6 @@ Secure authentication is the foundation of automated Salesforce deployments:
 6. **Test locally first** - verify authentication works before adding to pipeline
 7. **Implement proper error handling** - fail fast with clear error messages
 
-For Australia Post with 50 developers and strict security requirements, proper authentication isn't optional - it's the difference between a secure, compliant deployment process and a security incident waiting to happen.
+For Acme Corp with 50 developers and strict security requirements, proper authentication isn't optional - it's the difference between a secure, compliant deployment process and a security incident waiting to happen.
 
 Master authentication, and everything else becomes possible.

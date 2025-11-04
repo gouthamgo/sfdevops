@@ -100,7 +100,7 @@ This is your interview cheat sheet. Each question includes:
 > "We use feature branches."
 
 **Strong Answer** ✅:
-> "For a large team with scheduled releases like Australia Post, I'd recommend Environment-Based Branching combined with GitFlow principles.
+> "For a large team with scheduled releases like Acme Corp, I'd recommend Environment-Based Branching combined with GitFlow principles.
 >
 > We'd have three long-lived branches: `integration`, `uat`, and `production`, matching our Salesforce sandbox structure. Developers create feature branches from integration using the naming convention `feature/JIRA-123-description`.
 >
@@ -110,7 +110,7 @@ This is your interview cheat sheet. Each question includes:
 >
 > This approach gives us the audit trail needed for compliance, supports monthly release coordination through the UAT branch, and mirrors the way Salesforce orgs actually work, making it intuitive for developers to understand."
 
-**Why It's Strong**: Tailored to the specific context (Australia Post), explains the complete workflow, and justifies the choice with business reasons.
+**Why It's Strong**: Tailored to the specific context (Acme Corp), explains the complete workflow, and justifies the choice with business reasons.
 
 ---
 
@@ -377,7 +377,7 @@ This is your interview cheat sheet. Each question includes:
 > - Have a rollback plan documented before starting
 > - Practice rollback in sandbox to verify it works
 >
-> At Australia Post, I'd ensure every production deployment has a tested rollback plan approved before the deployment window."
+> At Acme Corp, I'd ensure every production deployment has a tested rollback plan approved before the deployment window."
 
 **Why It's Strong**: Provides both automated and manual approaches, acknowledges limitations, and includes preventive measures.
 
@@ -462,7 +462,7 @@ This is your interview cheat sheet. Each question includes:
 > - Deployment calendar visible to all
 > - Post-deployment: 'Production deployment complete, smoke tests passed'
 >
-> At Australia Post with 5 teams, I'd use deployment locks for production combined with environment-based branching. Integration sandbox allows parallel development without coordination, but production requires orchestration for safety."
+> At Acme Corp with 5 teams, I'd use deployment locks for production combined with environment-based branching. Integration sandbox allows parallel development without coordination, but production requires orchestration for safety."
 
 **Why It's Strong**: Multiple strategies provided, acknowledges team scale considerations, includes communication aspects.
 
@@ -820,7 +820,7 @@ This is your interview cheat sheet. Each question includes:
 >   - Pros: Team autonomy, faster builds
 >   - Cons: Dependency hell, harder to coordinate
 >
-> For Australia Post with 5 distinct teams (Sales, Service, Community, Marketing, Platform), I'd recommend **monorepo with directory-based permissions**:
+> For Acme Corp with 5 distinct teams (Sales, Service, Community, Marketing, Platform), I'd recommend **monorepo with directory-based permissions**:
 > ```
 > salesforce-crm/
 >   ├── sales-cloud/       (Sales team owns)
@@ -1050,7 +1050,7 @@ This is your interview cheat sheet. Each question includes:
 > - Pairing with senior dev for a sprint
 >
 > **Example implementation**:
-> 'At Australia Post, we had a junior team struggling with bulkification. I added a PMD rule that specifically flagged SOQL in loops and made it a blocking failure. First week: 15 violations caught before merge. Added a training session showing bad vs good patterns. Created a reference TriggerHandler with proper bulkification. After 1 month: Violations dropped to 1-2 per week. After 3 months: Near zero. The automation taught the pattern better than manual reviews.'
+> 'At Acme Corp, we had a junior team struggling with bulkification. I added a PMD rule that specifically flagged SOQL in loops and made it a blocking failure. First week: 15 violations caught before merge. Added a training session showing bad vs good patterns. Created a reference TriggerHandler with proper bulkification. After 1 month: Violations dropped to 1-2 per week. After 3 months: Near zero. The automation taught the pattern better than manual reviews.'
 >
 > The goal is to make doing the right thing easier than doing the wrong thing."
 
@@ -1477,7 +1477,7 @@ This is your interview cheat sheet. Each question includes:
 > - Complex org with integrations
 > - Compliance requirements
 >
-> **Australia Post recommendation**:
+> **Acme Corp recommendation**:
 > With 50+ developers, 5 teams, monthly releases, and compliance requirements, source-driven is the only scalable approach. I'd implement a 6-month migration:
 > - Month 1-2: Git training for all developers
 > - Month 3-4: Set up CI/CD pipeline, test with Dev/Int environments
@@ -2147,7 +2147,7 @@ You've mastered the technical questions. Now let's create tangible proof of your
 - How to document them effectively
 - GitHub profile optimization
 - Creating a personal DevOps pipeline
-- Projects that impressed Australia Post interviewers
+- Projects that impressed Acme Corp interviewers
 
 Let's build your portfolio: **[Building Your DevOps Portfolio →](/docs/interview-prep/portfolio-strategy)**
 

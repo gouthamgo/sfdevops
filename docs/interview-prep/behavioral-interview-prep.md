@@ -1,6 +1,6 @@
 # Behavioral Interview Preparation for DevOps Lead Role
 
-**Learning Objective**: Master behavioral interviews using the STAR method with answers tailored to the Australia Post DevOps Lead position.
+**Learning Objective**: Master behavioral interviews using the STAR method with answers tailored to the Acme Corp DevOps Lead position.
 
 ---
 
@@ -387,19 +387,19 @@ Result: [2-3 sentences: quantifiable outcome, learning, what you'd do differentl
 
 ---
 
-### Category 5: Australia Post-Specific Questions
+### Category 5: Acme Corp-Specific Questions
 
-#### Q9: "Why do you want to work at Australia Post?"
+#### Q9: "Why do you want to work at Acme Corp?"
 
 **STRONG Answer** (researched, specific, authentic):
 
-"I'm excited about Australia Post for three specific reasons:
+"I'm excited about Acme Corp for three specific reasons:
 
-**First, scale and impact**: Australia Post serves 11 million customers and 1,000+ employees rely on Salesforce daily. DevOps at this scale requires sophisticated automation, governance, and reliability. I've worked on teams with 20 developers—I want to grow my skills to handle 50+ developers across 5 teams. That complexity is where I thrive.
+**First, scale and impact**: Acme Corp serves 11 million customers and 1,000+ employees rely on Salesforce daily. DevOps at this scale requires sophisticated automation, governance, and reliability. I've worked on teams with 20 developers—I want to grow my skills to handle 50+ developers across 5 teams. That complexity is where I thrive.
 
-**Second, the modernization challenge**: I researched Australia Post's digital transformation initiatives. Modernizing a 200-year-old institution requires balancing innovation with reliability—you can't afford downtime when millions depend on you. That constraint forces excellence. I want to build systems that are both fast AND bulletproof.
+**Second, the modernization challenge**: I researched Acme Corp's digital transformation initiatives. Modernizing a 200-year-old institution requires balancing innovation with reliability—you can't afford downtime when millions depend on you. That constraint forces excellence. I want to build systems that are both fast AND bulletproof.
 
-**Third, meaningful work**: DevOps can feel abstract, but at Australia Post, pipeline improvements directly impact people getting their packages, businesses shipping products, and frontline employees serving customers. I want my work to matter beyond tech metrics.
+**Third, meaningful work**: DevOps can feel abstract, but at Acme Corp, pipeline improvements directly impact people getting their packages, businesses shipping products, and frontline employees serving customers. I want my work to matter beyond tech metrics.
 
 Specifically for this role, the combination of technical leadership (designing CI/CD architecture) and people leadership (leading the DevOps team) is exactly the growth path I'm seeking. I've been technical lead on my current team, but not people manager yet. This role lets me grow both skill sets at a company whose mission I believe in."
 
@@ -411,7 +411,7 @@ Specifically for this role, the combination of technical leadership (designing C
 
 ---
 
-#### Q10: "Australia Post has strict compliance requirements (ISO, SOX). How does that affect your DevOps approach?"
+#### Q10: "Acme Corp has strict compliance requirements (ISO, SOX). How does that affect your DevOps approach?"
 
 **STAR Answer**:
 
@@ -431,13 +431,13 @@ Specifically for this role, the combination of technical leadership (designing C
 **Result**:
 - Maintained fast deployment cycle (daily to Dev, weekly to Production) while meeting all compliance requirements
 - Auditors praised our "comprehensive deployment audit trail"
-- For Australia Post, I'd apply the same principles but scaled: 5 teams means more governance touchpoints, but pipeline automation ensures compliance is built-in, not manual
+- For Acme Corp, I'd apply the same principles but scaled: 5 teams means more governance touchpoints, but pipeline automation ensures compliance is built-in, not manual
 - Key learning: Compliance and speed aren't opposites. Automation enforces compliance better than humans can
 
 **Why this answer works**:
 - Shows direct experience with compliance
 - Specific mechanisms (audit logging, approval gates)
-- Connects past experience to Australia Post needs
+- Connects past experience to Acme Corp needs
 - Reframes compliance as enabler, not blocker
 
 ---
@@ -520,7 +520,7 @@ Interviewers want to know what YOU did, not the team.
 **1 Week Before**:
 - ✅ Prepare 15-20 STAR stories
 - ✅ Practice each story out loud 3+ times
-- ✅ Research Australia Post recent news
+- ✅ Research Acme Corp recent news
 - ✅ Prepare 5 questions to ask them
 
 **1 Day Before**:
@@ -556,7 +556,7 @@ Interviewers want to know what YOU did, not the team.
 
 ✅ **Failure stories are valuable**: Shows self-awareness and growth mindset
 
-✅ **Australia Post-specific prep**: Research the company, understand their scale and compliance needs
+✅ **Acme Corp-specific prep**: Research the company, understand their scale and compliance needs
 
 ✅ **Practice out loud**: Record yourself, aim for 2 minutes per answer
 
@@ -594,9 +594,9 @@ You've completed the Interview Prep section. You now have:
 
 **Week 5**: Practice interviews (record yourself answering 20 behavioral questions)
 
-**Week 6**: Apply to Australia Post DevOps Lead role
+**Week 6**: Apply to Acme Corp DevOps Lead role
 
-**12 weeks from now**, you could be starting your new role as DevOps Lead at Australia Post.
+**12 weeks from now**, you could be starting your new role as DevOps Lead at Acme Corp.
 
 **Or** you could still be "planning to start soon."
 

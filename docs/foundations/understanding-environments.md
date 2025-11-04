@@ -56,7 +56,7 @@ The rule still might have issues, but you catch them before they affect real use
 
 **Cost**: Comes with your Salesforce license
 
-**Australia Post context**: This is where 1000+ employees manage parcels, customers, and operations. Breaking this = very bad day.
+**Acme Corp context**: This is where 1000+ employees manage parcels, customers, and operations. Breaking this = very bad day.
 
 ---
 
@@ -124,7 +124,7 @@ The rule still might have issues, but you catch them before they affect real use
 
 **Typical use**: "I'm building a new Apex trigger. I'll develop and test it in my Dev sandbox first."
 
-**Australia Post context**: 50 developers might each have their own Dev sandbox to work independently.
+**Acme Corp context**: 50 developers might each have their own Dev sandbox to work independently.
 
 ---
 
@@ -158,7 +158,7 @@ sfdx force:org:delete -u feature-123
 
 **Why they're awesome**: Every developer can spin up clean orgs instantly. No waiting for sandbox refresh. No data conflicts.
 
-**Australia Post context**: Modern teams use scratch orgs for development, sandboxes for longer-term testing and UAT.
+**Acme Corp context**: Modern teams use scratch orgs for development, sandboxes for longer-term testing and UAT.
 
 ---
 

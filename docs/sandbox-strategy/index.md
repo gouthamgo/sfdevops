@@ -6,9 +6,9 @@ description: Design and manage enterprise-scale sandbox environments
 
 # Enterprise Sandbox Strategy & Architecture
 
-## Why This Section Matters for Australia Post
+## Why This Section Matters for Acme Corp
 
-As **DevOps Lead at Australia Post**, you'll manage sandboxes for 50 developers across 5 teams. The interview will definitely ask:
+As **DevOps Lead at Acme Corp**, you'll manage sandboxes for 50 developers across 5 teams. The interview will definitely ask:
 
 - "How would you design our sandbox strategy?"
 - "How many sandboxes do we need?"
@@ -168,7 +168,7 @@ Production
 
 ## Real-World Context
 
-### Australia Post Specifics
+### Acme Corp Specifics
 
 **Teams:**
 - Sales Cloud Team (10 devs)
@@ -325,11 +325,11 @@ Success: Complete pipeline working, weekly deployments, <15% failure rate
 
 ## Interview Answer Templates
 
-### "How would you design sandbox strategy for Australia Post?"
+### "How would you design sandbox strategy for Acme Corp?"
 
 **Strong Answer:**
 
-"Given Australia Post has 50 developers across 5 teams working on multiple Salesforce clouds, I'd design a 62-environment architecture:
+"Given Acme Corp has 50 developers across 5 teams working on multiple Salesforce clouds, I'd design a 62-environment architecture:
 
 **Foundation (50 Personal Dev Sandboxes):** Each developer gets their own Developer Sandbox for isolated work. This eliminates conflicts and enables parallel development.
 
@@ -384,7 +384,7 @@ Ready to design? → [Enterprise Architecture Design](./architecture-design)
 
 ## Portfolio Project Idea
 
-**Project: "Australia Post Sandbox Architecture Design"**
+**Project: "Acme Corp Sandbox Architecture Design"**
 
 Create a complete architecture document with:
 1. Current state analysis

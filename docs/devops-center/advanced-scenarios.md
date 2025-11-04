@@ -679,7 +679,7 @@ verify:
     - node scripts/performance-test.js
 ```
 
-### Australia Post Example
+### Acme Corp Example
 
 ```
 As DevOps Lead, you implement:

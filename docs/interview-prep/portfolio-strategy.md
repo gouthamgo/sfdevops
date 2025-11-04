@@ -1,12 +1,12 @@
 # Building Your DevOps Portfolio
 
-**Learning Objective**: Create a portfolio that demonstrates Salesforce DevOps expertise and gets you hired at Australia Post.
+**Learning Objective**: Create a portfolio that demonstrates Salesforce DevOps expertise and gets you hired at Acme Corp.
 
 ---
 
 ## The Portfolio Problem
 
-You're applying for the DevOps Lead role at Australia Post. Your resume says "Experience with CI/CD pipelines" and "Proficient in Git and Salesforce DX."
+You're applying for the DevOps Lead role at Acme Corp. Your resume says "Experience with CI/CD pipelines" and "Proficient in Git and Salesforce DX."
 
 So does everyone else's resume.
 
@@ -24,9 +24,9 @@ This page shows you exactly what to build and how to present it.
 
 ---
 
-## What Australia Post Wants to See
+## What Acme Corp Wants to See
 
-Based on the job description, Australia Post needs someone who can:
+Based on the job description, Acme Corp needs someone who can:
 
 1. **Build and maintain CI/CD pipelines** for Salesforce
 2. **Manage Git workflows** for multiple teams
@@ -196,7 +196,7 @@ validate:
 
 **What**: Demonstrate different Git branching strategies with real examples
 
-**Why it matters**: Australia Post has 50+ developers. They need someone who understands branching at scale.
+**Why it matters**: Acme Corp has 50+ developers. They need someone who understands branching at scale.
 
 **What to build**:
 
@@ -263,23 +263,23 @@ Three different branching strategies implemented with real Salesforce DevOps wor
 
 ### GitFlow
 - **Best for**: Large teams, scheduled releases
-- **Australia Post fit**: ⭐⭐⭐⭐ (Excellent)
+- **Acme Corp fit**: ⭐⭐⭐⭐ (Excellent)
 - **Complexity**: High
 - [See implementation →](./gitflow-example/)
 
 ### Trunk-Based Development
 - **Best for**: Small teams, continuous deployment
-- **Australia Post fit**: ⭐⭐ (Not recommended)
+- **Acme Corp fit**: ⭐⭐ (Not recommended)
 - **Complexity**: Low
 - [See implementation →](./trunk-based-example/)
 
 ### Environment-Based Branching
 - **Best for**: Organizations mirroring Salesforce orgs
-- **Australia Post fit**: ⭐⭐⭐⭐⭐ (Perfect)
+- **Acme Corp fit**: ⭐⭐⭐⭐⭐ (Perfect)
 - **Complexity**: Medium
 - [See implementation →](./environment-based-example/)
 
-## Recommendation for Australia Post
+## Recommendation for Acme Corp
 
 **Strategy**: Environment-Based Branching with GitFlow elements
 
@@ -293,7 +293,7 @@ Three different branching strategies implemented with real Salesforce DevOps wor
 ````
 
 **Presentation talking points**:
-> "I researched different branching strategies and implemented three examples to understand trade-offs. For Australia Post with 50+ developers and monthly releases, I'd recommend Environment-Based Branching where branches mirror your sandbox environments. I've documented the complete workflow, created automation scripts for common operations, and built a CI/CD pipeline that deploys based on branch merges. This gives you the structure needed for compliance while keeping it intuitive—developers understand 'the integration branch deploys to the Integration sandbox.'"
+> "I researched different branching strategies and implemented three examples to understand trade-offs. For Acme Corp with 50+ developers and monthly releases, I'd recommend Environment-Based Branching where branches mirror your sandbox environments. I've documented the complete workflow, created automation scripts for common operations, and built a CI/CD pipeline that deploys based on branch merges. This gives you the structure needed for compliance while keeping it intuitive—developers understand 'the integration branch deploys to the Integration sandbox.'"
 
 ---
 
@@ -346,8 +346,8 @@ public class TestDataFactory {
         return new Account(
             Name = name,
             Industry = industry,
-            BillingCity = 'Sydney',
-            BillingCountry = 'Australia'
+            BillingCity = 'San Francisco',
+            BillingCountry = 'USA'
         );
     }
 
@@ -942,7 +942,7 @@ deploy_job:
 Comprehensive learning resource for Salesforce DevOps, from beginner to production-ready.
 
 ## Why I Built It
-While learning Salesforce DevOps for the Australia Post role, I realized existing documentation was fragmented. I created this to:
+While learning Salesforce DevOps for the Acme Corp role, I realized existing documentation was fragmented. I created this to:
 - Consolidate best practices in one place
 - Provide hands-on examples, not just theory
 - Create a resource I wish I had when starting
@@ -981,7 +981,7 @@ While learning Salesforce DevOps for the Australia Post role, I realized existin
 ````
 
 **Presentation talking points**:
-> "This documentation website demonstrates my ability to take complex technical concepts and make them accessible. I built it while learning Salesforce DevOps myself, which gave me perspective on what beginners struggle with. The content follows progressive learning principles—each topic builds on previous knowledge. I included real scenarios, hands-on exercises, and interview prep. Technically, it's built with Docusaurus and deployed via CI/CD on GitHub Pages. I'm particularly proud of the Interview Prep section, which addresses the Australia Post role requirements directly."
+> "This documentation website demonstrates my ability to take complex technical concepts and make them accessible. I built it while learning Salesforce DevOps myself, which gave me perspective on what beginners struggle with. The content follows progressive learning principles—each topic builds on previous knowledge. I included real scenarios, hands-on exercises, and interview prep. Technically, it's built with Docusaurus and deployed via CI/CD on GitHub Pages. I'm particularly proud of the Interview Prep section, which addresses the Acme Corp role requirements directly."
 
 ---
 
@@ -1067,7 +1067,7 @@ Would you like me to walk through any of these in detail?"
 - Shows honest self-assessment
 
 **5. Connect to the role**:
-- "For Australia Post with 50 developers, this branching strategy would..."
+- "For Acme Corp with 50 developers, this branching strategy would..."
 - "This pipeline architecture could handle your deployment frequency..."
 
 ---
@@ -1097,7 +1097,7 @@ Would you like me to walk through any of these in detail?"
 Then practice presenting them:
 - 2-minute overview of each
 - 5-minute deep dive if asked
-- Connect to Australia Post requirements
+- Connect to Acme Corp requirements
 
 ---
 
@@ -1128,7 +1128,7 @@ Then practice presenting them:
 **Fix**: Customize, extend, and explain in your own words
 
 ### ❌ Mistake 6: Not connecting to the role
-**Fix**: Every project should answer: "How does this relate to Australia Post?"
+**Fix**: Every project should answer: "How does this relate to Acme Corp?"
 
 ---
 
@@ -1142,7 +1142,7 @@ Then practice presenting them:
 
 ✅ **Tell the story**: Problem → Solution → Impact (with metrics)
 
-✅ **Connect to the role**: Relate every project to Australia Post requirements
+✅ **Connect to the role**: Relate every project to Acme Corp requirements
 
 ✅ **Show, don't tell**: Working demos prove competence better than claims
 
@@ -1157,7 +1157,7 @@ You have the technical skills and portfolio. Now let's prepare for behavioral qu
 **Next topic**: Answering behavioral questions specific to DevOps Lead roles, including:
 - STAR method for structuring answers
 - Common behavioral questions for DevOps roles
-- Australia Post-specific scenarios
+- Acme Corp-specific scenarios
 - Demonstrating leadership without being a manager yet
 - Handling conflict, mistakes, and failure
 

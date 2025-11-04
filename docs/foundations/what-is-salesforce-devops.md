@@ -114,9 +114,9 @@ You spend 3 hours copying metadata from sandbox to production using change sets.
 
 ---
 
-## A Day in the Life: DevOps Lead at Australia Post
+## A Day in the Life: DevOps Lead at Acme Corp
 
-Let's make this concrete. Imagine you're a DevOps Lead at Australia Post, managing Salesforce across their enterprise.
+Let's make this concrete. Imagine you're a DevOps Lead at Acme Corp, managing Salesforce across their enterprise.
 
 **Your Monday morning looks like this:**
 
@@ -212,7 +212,7 @@ Let me show you what changes when you implement DevOps:
 
 Here's the reality: companies with mature Salesforce implementations need DevOps. It's not optional anymore.
 
-Australia Post isn't hiring a DevOps Lead because it sounds cool. They're hiring because manual deployments don't scale. When you have 50+ developers, multiple clouds, and business-critical processes, you need professional DevOps.
+Acme Corp isn't hiring a DevOps Lead because it sounds cool. They're hiring because manual deployments don't scale. When you have 50+ developers, multiple clouds, and business-critical processes, you need professional DevOps.
 
 Learning Salesforce DevOps makes you:
 - **More valuable**: DevOps skills are in high demand and short supply

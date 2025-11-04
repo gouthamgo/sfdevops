@@ -29,14 +29,14 @@ This section bridges that gap.
 
 ### Interview Prep Section teaches you HOW (and WHY)
 - How to implement GitFlow vs Environment-Based Branching
-- Why you'd choose one over the other for Australia Post
+- Why you'd choose one over the other for Acme Corp
 - How to articulate that choice in an interview
 
 ### Real-World Focus
 Every topic in this section answers:
 - ✅ What interviewers will ask
 - ✅ How to demonstrate the skill
-- ✅ What Australia Post specifically needs
+- ✅ What Acme Corp specifically needs
 - ✅ How to present your experience
 
 ---
@@ -49,7 +49,7 @@ Every topic in this section answers:
 - GitFlow, Trunk-Based Development, Feature Branch, Environment-Based Branching
 - When to use each strategy (with decision framework)
 - How to implement each (with real Git commands)
-- Which strategy fits Australia Post (and why)
+- Which strategy fits Acme Corp (and why)
 
 **Interview questions covered**:
 - "What branching strategy would you recommend for our organization?"
@@ -107,7 +107,7 @@ Every topic in this section answers:
 
 **Time to complete**: 90 minutes (to read all), then practice
 
-**Key takeaway**: You'll have confident, detailed answers to the exact questions Australia Post interviewers will ask.
+**Key takeaway**: You'll have confident, detailed answers to the exact questions Acme Corp interviewers will ask.
 
 ---
 
@@ -145,13 +145,13 @@ Every topic in this section answers:
 - 10+ example answers to common behavioral questions
 - How to demonstrate leadership when you haven't been a manager
 - Handling conflict, mistakes, and failure questions
-- Australia Post-specific scenarios
+- Acme Corp-specific scenarios
 
 **Interview questions covered**:
 - "Tell me about a time you led a team through a challenging project"
 - "Describe a situation where you had to influence without authority"
 - "What's your biggest professional failure and what did you learn?"
-- "Why do you want to work at Australia Post?"
+- "Why do you want to work at Acme Corp?"
 - "How do you handle compliance requirements in DevOps?"
 
 **Time to complete**: 90 minutes to read, then 2-3 hours to prepare your stories
@@ -219,7 +219,7 @@ You can complete just this section and be ready for entry-level DevOps interview
 
 Combine it with Foundations + Building Pipelines, and you're ready for mid-level roles.
 
-Complete the entire learning path, and you're competitive for the Australia Post DevOps Lead position.
+Complete the entire learning path, and you're competitive for the Acme Corp DevOps Lead position.
 
 ---
 
@@ -253,7 +253,7 @@ Then tomorrow, do it again.
 
 In 4 weeks, you'll have a portfolio that proves you can do the job.
 
-In 12 weeks, you could be starting your new role as DevOps Lead at Australia Post.
+In 12 weeks, you could be starting your new role as DevOps Lead at Acme Corp.
 
 **Or** you could still be "planning to start soon."
 

@@ -368,9 +368,9 @@ DevOps Lead clicks "Approve" button.
 
 ---
 
-## Benefits for Australia Post Context
+## Benefits for Acme Corp Context
 
-As a DevOps Lead at Australia Post, CI/CD gives you:
+As a DevOps Lead at Acme Corp, CI/CD gives you:
 
 ### 1. Multi-Team Coordination
 
@@ -387,7 +387,7 @@ As a DevOps Lead at Australia Post, CI/CD gives you:
 
 ### 2. Compliance and Audit
 
-**The challenge**: Australia Post is a government enterprise. Strict compliance requirements.
+**The challenge**: Acme Corp is a large enterprise. Strict compliance requirements.
 
 **Without CI/CD**: Manual logs. Hard to prove who deployed what.
 

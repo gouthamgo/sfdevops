@@ -8,7 +8,7 @@ description: Learn CI/CD automation from scratch using our real auto-merge workf
 
 ## Why This Matters for Your Career
 
-**DevOps Lead interviews at companies like Australia Post** will ask:
+**DevOps Lead interviews at companies like Acme Corp** will ask:
 - "How do you automate deployments?"
 - "Explain your CI/CD pipeline"
 - "How would you implement automated testing?"
@@ -1318,7 +1318,7 @@ I also version-pin all actions (e.g., `@v4`) for reproducibility."
 - Demonstrates practical DevOps skills
 - Shows automation expertise
 - Proves you can implement CI/CD from scratch
-- Perfect talking point for Australia Post interview
+- Perfect talking point for Acme Corp interview
 
 ### Advanced Topics to Explore
 
@@ -1455,7 +1455,7 @@ Deployment Process (Automated):
 └─ Rollback Time: 5 minutes
 ```
 
-**Impact for Australia Post (50 developers):**
+**Impact for Acme Corp (50 developers):**
 - **Time saved:** 17 minutes × 5 deploys/week × 50 weeks = 70+ hours/year per developer
 - **Total saved:** 3,500 hours/year across team
 - **Cost savings:** $350,000/year (at $100/hour)

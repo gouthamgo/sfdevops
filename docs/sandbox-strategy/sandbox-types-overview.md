@@ -8,11 +8,11 @@ description: Master the different sandbox types and when to use each in an enter
 
 ## Learning Objective
 
-Master the different Salesforce sandbox types and when to use each in an enterprise DevOps setup like Australia Post.
+Master the different Salesforce sandbox types and when to use each in an enterprise DevOps setup like Acme Corp.
 
 ## The Sandbox Challenge
 
-You're DevOps Lead at Australia Post. You have 50 developers across 5 teams working on Sales Cloud, Service Cloud, and Community Cloud.
+You're DevOps Lead at Acme Corp. You have 50 developers across 5 teams working on Sales Cloud, Service Cloud, and Community Cloud.
 
 **The question:** How many sandboxes do you need? What types? Who gets which one? This is real sandbox strategy.
 
@@ -77,7 +77,7 @@ graph TB
 - Integration testing
 - Multiple developers on same code
 
-**Australia Post Use Case:**
+**Acme Corp Use Case:**
 ```
 Scenario: Each developer gets their own Dev sandbox
 - 50 developers = 50 Dev sandboxes
@@ -99,7 +99,7 @@ Scenario: Each developer gets their own Dev sandbox
 - Data-heavy testing
 - Still no production data
 
-**Australia Post Use Case:**
+**Acme Corp Use Case:**
 ```
 Scenario: One per team (5 teams = 5 Dev Pro)
 - Sales Cloud Team shared environment
@@ -127,7 +127,7 @@ Purpose:
 - Performance testing
 - Complete UAT (limited data)
 
-**Australia Post Use Case:**
+**Acme Corp Use Case:**
 ```
 Scenario: Integration test environment
 - Contains sample customers, orders, cases
@@ -156,7 +156,7 @@ Data Template Includes:
 - Daily development (too slow to refresh)
 - Frequent testing (limited refreshes)
 
-**Australia Post Use Case:**
+**Acme Corp Use Case:**
 ```
 Scenario: UAT and Performance environments
 - UAT environment (business users test here)
@@ -238,14 +238,14 @@ graph LR
 
 ## Data Masking (Critical for Full Sandboxes)
 
-Full sandboxes contain REAL production data. At Australia Post, this means real customer names, addresses, payment info. **You MUST mask sensitive data.**
+Full sandboxes contain REAL production data. At Acme Corp, this means real customer names, addresses, payment info. **You MUST mask sensitive data.**
 
 ### Data to Mask
 
 ```
 Personal Information:
 - Customer names → "Test Customer 001"
-- Email addresses → random@ausposttest.com.au
+- Email addresses → random@acmecorptest.com
 - Phone numbers → Randomized
 - Home addresses → Generic addresses
 - Date of birth → Randomized dates
@@ -415,7 +415,7 @@ Developer Pro: $1,500/month each
 Partial Copy: $3,000/month each
 Full Sandbox: $30,000/month each
 
-Example Australia Post Setup:
+Example Acme Corp Setup:
 - 50x Developer: Included = $0
 - 7x Developer Pro: $10,500/month
 - 2x Partial Copy: $6,000/month
@@ -474,7 +474,7 @@ Before moving on, make sure you can answer:
 
 ## Next Steps
 
-You understand sandbox types and their purposes. Now let's design a complete enterprise architecture for Australia Post's 50 developers.
+You understand sandbox types and their purposes. Now let's design a complete enterprise architecture for Acme Corp's 50 developers.
 
 **Continue to:** [Enterprise Sandbox Architecture Design](./architecture-design)
 

@@ -12,7 +12,7 @@ Master the complete DevOps Center workflow from feature request to production de
 
 ## The Complete Workflow
 
-Let's walk through a real scenario that you'll face at Australia Post:
+Let's walk through a real scenario that you'll face at Acme Corp:
 
 **Feature Request:** The sales team needs a new custom field on the Opportunity object to track **"Competitor Name"**.
 
@@ -619,7 +619,7 @@ Pre-Deployment Checklist for W-0001234
 
 ### Schedule Deployment Window
 
-For Australia Post (large enterprise):
+For Acme Corp (large enterprise):
 
 ```
 Deployment Window
