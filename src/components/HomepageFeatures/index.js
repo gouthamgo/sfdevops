@@ -4,46 +4,72 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Beginner-Friendly Learning Path',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '🎓 Beginner-Friendly',
+    icon: '📚',
     description: (
       <>
         Start from zero knowledge and progress to production-ready DevOps engineer.
-        7 foundation topics with hands-on examples, real scenarios, and practical exercises.
-        No prerequisites required.
+        11 foundation topics with hands-on examples and real scenarios.
       </>
     ),
   },
   {
-    title: 'Interview Prep & Git Mastery',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '💼 Interview Ready',
+    icon: '🎯',
     description: (
       <>
-        Master Git branching strategies, daily workflows, and 30+ technical interview questions.
-        Build a portfolio with 5 projects. STAR method for behavioral interviews.
-        Get ready for DevOps Lead roles.
+        100+ technical questions, system design prep, salary negotiation guide ($75K-$450K+),
+        and take-home assignment examples.
       </>
     ),
   },
   {
-    title: 'Real-World CI/CD Pipelines',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '🚀 Production Skills',
+    icon: '⚡',
     description: (
       <>
-        Learn GitLab CI/CD, automated testing, deployment strategies, and production troubleshooting.
-        50,000+ words of content with code examples, diagrams, and complete workflows you can use immediately.
+        Real-world CI/CD pipelines, GitLab & GitHub Actions, automated testing,
+        multi-environment deployments, and 8 hands-on labs.
+      </>
+    ),
+  },
+  {
+    title: '📊 Career Guidance',
+    icon: '💰',
+    description: (
+      <>
+        Complete career progression roadmap from Junior ($75K) to Principal ($450K+).
+        Learn what skills and impact are needed at each level.
+      </>
+    ),
+  },
+  {
+    title: '🛠️ Hands-On Labs',
+    icon: '💻',
+    description: (
+      <>
+        8 complete labs building a production-ready portfolio project with
+        CI/CD, testing, monitoring, and multi-environment deployments.
+      </>
+    ),
+  },
+  {
+    title: '📖 50K+ Words',
+    icon: '📝',
+    description: (
+      <>
+        Comprehensive guides covering Git workflows, branching strategies,
+        DevOps Center, sandbox architecture, and real-world scenarios.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({icon, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>{icon}</div>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
@@ -55,6 +81,10 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2">Why This Guide Stands Out</Heading>
+          <p>Everything you need in one comprehensive, free resource</p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
