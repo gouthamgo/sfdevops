@@ -15,6 +15,54 @@
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
+  // Salesforce Learning Path
+  salesforceSidebar: [
+    'salesforce/index',
+    {
+      type: 'category',
+      label: '📚 Platform Fundamentals',
+      items: [
+        'salesforce/fundamentals/platform-overview',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🗄️ Data Model & Objects',
+      items: [
+        'salesforce/data-model/objects-and-fields',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔧 Declarative Development',
+      items: [
+        'salesforce/declarative/introduction',
+      ],
+    },
+    {
+      type: 'category',
+      label: '💻 Apex Programming',
+      items: [
+        'salesforce/apex/introduction',
+      ],
+    },
+    {
+      type: 'category',
+      label: '⚡ Lightning Web Components',
+      items: [
+        'salesforce/lwc/introduction',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📦 Metadata & Deployment',
+      items: [
+        'salesforce/metadata/introduction',
+      ],
+    },
+  ],
+
+  // DevOps Learning Path
   tutorialSidebar: [
     'intro',
     {
