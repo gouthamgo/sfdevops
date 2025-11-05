@@ -49,6 +49,8 @@ const sidebars = {
         'salesforce/apex/fundamentals',
         'salesforce/apex/triggers',
         'salesforce/apex/testing',
+        'salesforce/apex/asynchronous',
+        'salesforce/apex/integration',
       ],
     },
     {

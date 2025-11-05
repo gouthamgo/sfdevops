@@ -44,7 +44,7 @@ function HomepageHeader() {
           </div>
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>80K+</div>
+              <div className={styles.statNumber}>90K+</div>
               <div className={styles.statLabel}>Words of Content</div>
             </div>
             <div className={styles.stat}>
