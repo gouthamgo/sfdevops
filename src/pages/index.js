@@ -16,20 +16,25 @@ function HomepageHeader() {
         <div className={styles.heroContent}>
           <span className={styles.badge}>🚀 Free & Open Source</span>
           <Heading as="h1" className={styles.heroTitle}>
-            Master Salesforce DevOps
+            Master Salesforce & DevOps
           </Heading>
           <p className={styles.heroSubtitle}>
-            From Zero to Production-Ready in 30 Days
+            Complete Journey: From Salesforce Basics to Production-Ready DevOps
           </p>
           <p className={styles.heroDescription}>
-            Complete learning path with CI/CD pipelines, Git workflows, automated testing,
-            and real-world interview prep. Build production-ready skills used by top DevOps engineers.
+            Two comprehensive learning paths in one place. Start with Salesforce fundamentals or jump straight to DevOps.
+            Master CI/CD pipelines, Apex, LWC, Git workflows, automated testing, and real-world interview prep.
           </p>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--lg', styles.primaryButton)}
+              to="/docs/salesforce/">
+              Learn Salesforce 📚
+            </Link>
+            <Link
+              className={clsx('button button--lg', styles.primaryButton)}
               to="/docs/intro">
-              Start Learning Free →
+              Learn DevOps 🚀
             </Link>
             <Link
               className={clsx('button button--lg', styles.secondaryButton)}
@@ -39,12 +44,12 @@ function HomepageHeader() {
           </div>
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>50K+</div>
+              <div className={styles.statNumber}>70K+</div>
               <div className={styles.statLabel}>Words of Content</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>8</div>
-              <div className={styles.statLabel}>Hands-On Labs</div>
+              <div className={styles.statNumber}>2</div>
+              <div className={styles.statLabel}>Learning Tracks</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.statNumber}>100%</div>
@@ -64,20 +69,48 @@ function WhatYoullLearn() {
         <div className={styles.sectionHeader}>
           <Heading as="h2">What You'll Master</Heading>
           <p className={styles.sectionSubtext}>
-            Everything you need to become a production-ready Salesforce DevOps engineer
+            Complete skill-set: Salesforce development + DevOps engineering
           </p>
         </div>
         <div className="row">
           <div className="col col--6">
             <div className={styles.learnCard}>
-              <div className={styles.learnIcon}>🛠️</div>
-              <h3>Core DevOps Skills</h3>
+              <div className={styles.learnIcon}>📚</div>
+              <h3>Salesforce Platform</h3>
               <ul className={styles.learnList}>
-                <li>✅ Git branching strategies (GitFlow, Trunk-based)</li>
+                <li>✅ Platform fundamentals & architecture</li>
+                <li>✅ Data modeling & objects</li>
+                <li>✅ Apex programming & triggers</li>
+                <li>✅ Lightning Web Components (LWC)</li>
+                <li>✅ Declarative automation (Flows)</li>
+              </ul>
+            </div>
+          </div>
+          <div className="col col--6">
+            <div className={styles.learnCard}>
+              <div className={styles.learnIcon}>🛠️</div>
+              <h3>DevOps & CI/CD</h3>
+              <ul className={styles.learnList}>
+                <li>✅ Git workflows & branching strategies</li>
                 <li>✅ CI/CD pipelines (GitHub Actions, GitLab)</li>
                 <li>✅ Automated testing & deployment</li>
                 <li>✅ Infrastructure as Code</li>
                 <li>✅ Docker & Kubernetes basics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="row" style={{marginTop: '2rem'}}>
+          <div className="col col--6">
+            <div className={styles.learnCard}>
+              <div className={styles.learnIcon}>⚡</div>
+              <h3>Production Skills</h3>
+              <ul className={styles.learnList}>
+                <li>✅ Multi-team coordination</li>
+                <li>✅ Metadata deployment strategies</li>
+                <li>✅ Sandbox & org management</li>
+                <li>✅ Production monitoring</li>
+                <li>✅ Emergency hotfix procedures</li>
               </ul>
             </div>
           </div>
@@ -102,19 +135,19 @@ function WhatYoullLearn() {
 
 function LearningPath() {
   const steps = [
-    { number: '01', title: 'Foundations', desc: 'Master Git, CI/CD, and Salesforce DX basics', duration: 'Days 1-7' },
-    { number: '02', title: 'Pipelines', desc: 'Build automated deployment pipelines', duration: 'Days 8-14' },
-    { number: '03', title: 'Advanced', desc: 'Multi-team coordination & complex scenarios', duration: 'Days 15-21' },
-    { number: '04', title: 'Interview Ready', desc: 'Complete your portfolio & ace interviews', duration: 'Days 22-30' },
+    { number: '01', title: 'Salesforce Basics', desc: 'Platform fundamentals, data model, and core concepts', duration: 'Weeks 1-4' },
+    { number: '02', title: 'Development Skills', desc: 'Apex programming, LWC, and declarative automation', duration: 'Weeks 5-8' },
+    { number: '03', title: 'DevOps Foundations', desc: 'Git, CI/CD, and deployment pipelines', duration: 'Weeks 9-12' },
+    { number: '04', title: 'Production Ready', desc: 'Advanced scenarios, monitoring, and interview prep', duration: 'Weeks 13-16' },
   ];
 
   return (
     <section className={styles.pathSection}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <Heading as="h2">Your 30-Day Learning Journey</Heading>
+          <Heading as="h2">Complete Learning Journey</Heading>
           <p className={styles.sectionSubtext}>
-            Structured path from beginner to job-ready DevOps engineer
+            From Salesforce beginner to production-ready DevOps engineer in 16 weeks
           </p>
         </div>
         <div className={styles.timeline}>
@@ -160,16 +193,21 @@ function CTASection() {
     <section className={styles.ctaSection}>
       <div className="container">
         <div className={styles.ctaContent}>
-          <Heading as="h2">Ready to Start Your DevOps Journey?</Heading>
+          <Heading as="h2">Ready to Start Your Learning Journey?</Heading>
           <p className={styles.ctaText}>
-            Join thousands of engineers learning Salesforce DevOps.
-            Start with our comprehensive beginner's guide — completely free.
+            Choose your path: Start with Salesforce fundamentals or jump straight to DevOps.
+            Both comprehensive tracks are completely free, no signup required.
           </p>
           <div className={styles.ctaButtons}>
             <Link
               className={clsx('button button--lg', styles.primaryButton)}
+              to="/docs/salesforce/">
+              Start with Salesforce →
+            </Link>
+            <Link
+              className={clsx('button button--lg', styles.primaryButton)}
               to="/docs/intro">
-              Get Started Free →
+              Jump to DevOps →
             </Link>
             <Link
               className={clsx('button button--lg', styles.outlineButton)}
@@ -190,8 +228,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Learn Salesforce DevOps - From Beginner to Production-Ready`}
-      description="Master Salesforce DevOps, CI/CD pipelines, Git workflows, and automated testing. Complete learning path with hands-on examples, interview prep, and portfolio projects. Free comprehensive guide for DevOps engineers.">
+      title={`Learn Salesforce & DevOps - Complete Learning Path`}
+      description="Master Salesforce development and DevOps engineering. Learn Apex, LWC, CI/CD pipelines, Git workflows, and automated testing. Two comprehensive tracks with hands-on examples, interview prep, and portfolio projects. 100% free.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
