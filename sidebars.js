@@ -54,6 +54,7 @@ const sidebars = {
       label: '⚡ Lightning Web Components',
       items: [
         'salesforce/lwc/introduction',
+        'salesforce/lwc/fundamentals',
       ],
     },
     {
@@ -61,6 +62,7 @@ const sidebars = {
       label: '📦 Metadata & Deployment',
       items: [
         'salesforce/metadata/introduction',
+        'salesforce/metadata/metadata-fundamentals',
       ],
     },
   ],
