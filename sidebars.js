@@ -47,6 +47,8 @@ const sidebars = {
       items: [
         'salesforce/apex/introduction',
         'salesforce/apex/fundamentals',
+        'salesforce/apex/triggers',
+        'salesforce/apex/testing',
       ],
     },
     {
