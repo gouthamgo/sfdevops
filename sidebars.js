@@ -37,6 +37,8 @@ const sidebars = {
       label: '🔧 Declarative Development',
       items: [
         'salesforce/declarative/introduction',
+        'salesforce/declarative/validation-rules',
+        'salesforce/declarative/flow-builder',
       ],
     },
     {
@@ -44,6 +46,7 @@ const sidebars = {
       label: '💻 Apex Programming',
       items: [
         'salesforce/apex/introduction',
+        'salesforce/apex/fundamentals',
       ],
     },
     {
