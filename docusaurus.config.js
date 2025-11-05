@@ -51,20 +51,7 @@ const config = {
           // editUrl:
           //   'https://github.com/ganguly/salesforce-devops-hub/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Remove edit URL for now
-          // editUrl:
-          //   'https://github.com/ganguly/salesforce-devops-hub/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Disable blog
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -95,11 +82,16 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            sidebarId: 'salesforceSidebar',
+            position: 'left',
+            label: 'Learn Salesforce',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Learning Path',
+            label: 'Learn DevOps',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             type: 'search',
             position: 'right',
@@ -110,7 +102,24 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Learn',
+            title: 'Salesforce',
+            items: [
+              {
+                label: 'Platform Overview',
+                to: '/docs/salesforce/',
+              },
+              {
+                label: 'Apex Programming',
+                to: '/docs/salesforce/apex/introduction',
+              },
+              {
+                label: 'Lightning Web Components',
+                to: '/docs/salesforce/lwc/introduction',
+              },
+            ],
+          },
+          {
+            title: 'DevOps',
             items: [
               {
                 label: 'Getting Started',
@@ -130,12 +139,12 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'Interview Prep',
                 to: '/docs/interview-prep/',
+              },
+              {
+                label: 'Case Studies',
+                to: '/docs/case-studies/real-world-implementations',
               },
             ],
           },
