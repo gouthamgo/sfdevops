@@ -64,6 +64,7 @@ const sidebars = {
         'salesforce/lwc/introduction',
         'salesforce/lwc/fundamentals',
         'salesforce/lwc/practical-guide',
+        'salesforce/lwc/testing',
       ],
     },
     {
