@@ -52,6 +52,8 @@ const sidebars = {
         'salesforce/apex/asynchronous',
         'salesforce/apex/integration',
         'salesforce/apex/practical-guide',
+        'salesforce/apex/advanced-soql',
+        'salesforce/apex/dynamic-apex',
       ],
     },
     {
