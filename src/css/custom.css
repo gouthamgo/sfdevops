@@ -31,3 +31,357 @@
 
 /* Import custom Mermaid diagram styling */
 @import './mermaid-custom.css';
+
+/* =================================================================
+   Code Block Styling - Enhanced Readability & Modern Design
+   ================================================================= */
+
+/* Code blocks container */
+div[class^='codeBlockContainer'] {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  margin: 1.5rem 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='dark'] div[class^='codeBlockContainer'] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Code block header/title */
+div[class^='codeBlockTitle'] {
+  background: linear-gradient(135deg, #667eea15, #764ba215) !important;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding: 0.75rem 1rem !important;
+}
+
+[data-theme='dark'] div[class^='codeBlockTitle'] {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border-bottom: 2px solid rgba(167, 139, 250, 0.3) !important;
+}
+
+/* Code block content */
+pre[class*='language-'] {
+  margin: 0 !important;
+  border-radius: 0 0 12px 12px !important;
+  padding: 1.25rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+code[class*='language-'] {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Inline code */
+code:not([class*='language-']) {
+  background: rgba(102, 126, 234, 0.1) !important;
+  color: #5b21b6 !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 4px !important;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace !important;
+  font-size: 0.88em !important;
+  border: 1px solid rgba(102, 126, 234, 0.2) !important;
+}
+
+[data-theme='dark'] code:not([class*='language-']) {
+  background: rgba(167, 139, 250, 0.15) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(167, 139, 250, 0.3) !important;
+}
+
+/* =================================================================
+   Syntax Highlighting - High Contrast Colors
+   ================================================================= */
+
+/* LIGHT MODE - Enhanced Colors */
+:root {
+  /* Comments - Make them stand out! */
+  --prism-comment-color: #6a737d;
+  --prism-comment-font-style: italic;
+
+  /* Keywords */
+  --prism-keyword-color: #d73a49;
+
+  /* Strings */
+  --prism-string-color: #032f62;
+
+  /* Functions */
+  --prism-function-color: #6f42c1;
+
+  /* Numbers */
+  --prism-number-color: #005cc5;
+
+  /* Operators */
+  --prism-operator-color: #d73a49;
+
+  /* Variables */
+  --prism-variable-color: #e36209;
+
+  /* Properties */
+  --prism-property-color: #005cc5;
+
+  /* Classes */
+  --prism-class-name-color: #6f42c1;
+
+  /* Punctuation */
+  --prism-punctuation-color: #24292e;
+}
+
+/* Comments - LIGHT MODE */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6a9955 !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Keywords - LIGHT MODE */
+.token.keyword,
+.token.tag,
+.token.boolean,
+.token.constant,
+.token.deleted {
+  color: #d73a49 !important;
+  font-weight: 600 !important;
+}
+
+/* Strings - LIGHT MODE */
+.token.string,
+.token.attr-value,
+.token.char,
+.token.inserted {
+  color: #22863a !important;
+}
+
+/* Functions - LIGHT MODE */
+.token.function,
+.token.selector {
+  color: #6f42c1 !important;
+  font-weight: 600 !important;
+}
+
+/* Numbers - LIGHT MODE */
+.token.number {
+  color: #005cc5 !important;
+  font-weight: 600 !important;
+}
+
+/* Operators - LIGHT MODE */
+.token.operator,
+.token.entity,
+.token.url {
+  color: #d73a49 !important;
+}
+
+/* Variables - LIGHT MODE */
+.token.variable {
+  color: #e36209 !important;
+}
+
+/* Properties - LIGHT MODE */
+.token.property,
+.token.attr-name {
+  color: #005cc5 !important;
+}
+
+/* Classes - LIGHT MODE */
+.token.class-name {
+  color: #6f42c1 !important;
+  font-weight: 600 !important;
+}
+
+/* Punctuation - LIGHT MODE */
+.token.punctuation {
+  color: #586069 !important;
+}
+
+/* =================================================================
+   DARK MODE - Enhanced Colors
+   ================================================================= */
+
+[data-theme='dark'] {
+  /* Comments - Bright and readable in dark mode */
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #7c8e99 !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+  }
+
+  /* Keywords - DARK MODE */
+  .token.keyword,
+  .token.tag,
+  .token.boolean,
+  .token.constant,
+  .token.deleted {
+    color: #ff79c6 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Strings - DARK MODE */
+  .token.string,
+  .token.attr-value,
+  .token.char,
+  .token.inserted {
+    color: #50fa7b !important;
+  }
+
+  /* Functions - DARK MODE */
+  .token.function,
+  .token.selector {
+    color: #8be9fd !important;
+    font-weight: 600 !important;
+  }
+
+  /* Numbers - DARK MODE */
+  .token.number {
+    color: #bd93f9 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Operators - DARK MODE */
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #ff79c6 !important;
+  }
+
+  /* Variables - DARK MODE */
+  .token.variable {
+    color: #ffb86c !important;
+  }
+
+  /* Properties - DARK MODE */
+  .token.property,
+  .token.attr-name {
+    color: #8be9fd !important;
+  }
+
+  /* Classes - DARK MODE */
+  .token.class-name {
+    color: #a78bfa !important;
+    font-weight: 600 !important;
+  }
+
+  /* Punctuation - DARK MODE */
+  .token.punctuation {
+    color: #f8f8f2 !important;
+  }
+}
+
+/* =================================================================
+   Code Line Highlighting
+   ================================================================= */
+
+.theme-code-block-highlighted-line {
+  background-color: rgba(102, 126, 234, 0.15) !important;
+  display: block !important;
+  margin: 0 -1.25rem !important;
+  padding: 0 1.25rem !important;
+  border-left: 3px solid #667eea !important;
+}
+
+[data-theme='dark'] .theme-code-block-highlighted-line {
+  background-color: rgba(167, 139, 250, 0.15) !important;
+  border-left: 3px solid #a78bfa !important;
+}
+
+/* =================================================================
+   Copy Button Styling
+   ================================================================= */
+
+button[class*='copyButton'] {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border: 1px solid rgba(102, 126, 234, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 0.5rem !important;
+  transition: all 0.2s ease !important;
+}
+
+button[class*='copyButton']:hover {
+  background: rgba(102, 126, 234, 0.2) !important;
+  border-color: rgba(102, 126, 234, 0.5) !important;
+  transform: scale(1.05) !important;
+}
+
+[data-theme='dark'] button[class*='copyButton'] {
+  background: rgba(167, 139, 250, 0.1) !important;
+  border: 1px solid rgba(167, 139, 250, 0.3) !important;
+}
+
+[data-theme='dark'] button[class*='copyButton']:hover {
+  background: rgba(167, 139, 250, 0.2) !important;
+  border-color: rgba(167, 139, 250, 0.5) !important;
+}
+
+/* =================================================================
+   Language Badge Styling
+   ================================================================= */
+
+div[class*='codeBlockTitle'] code {
+  background: rgba(102, 126, 234, 0.15) !important;
+  color: #5b21b6 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(102, 126, 234, 0.3) !important;
+}
+
+[data-theme='dark'] div[class*='codeBlockTitle'] code {
+  background: rgba(167, 139, 250, 0.2) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(167, 139, 250, 0.4) !important;
+}
+
+/* =================================================================
+   Markdown Code Fences Improvement
+   ================================================================= */
+
+.markdown > pre {
+  border-radius: 12px !important;
+  padding: 1.25rem !important;
+}
+
+/* Scrollbar styling for code blocks */
+pre[class*='language-']::-webkit-scrollbar {
+  height: 8px !important;
+  width: 8px !important;
+}
+
+pre[class*='language-']::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-radius: 4px !important;
+}
+
+pre[class*='language-']::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.3) !important;
+  border-radius: 4px !important;
+}
+
+pre[class*='language-']::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.5) !important;
+}
+
+[data-theme='dark'] pre[class*='language-']::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] pre[class*='language-']::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.3) !important;
+}
+
+[data-theme='dark'] pre[class*='language-']::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.5) !important;
+}
