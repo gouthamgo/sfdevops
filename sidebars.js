@@ -65,6 +65,8 @@ const sidebars = {
         'salesforce/lwc/fundamentals',
         'salesforce/lwc/practical-guide',
         'salesforce/lwc/testing',
+        'salesforce/lwc/advanced-patterns',
+        'salesforce/lwc/lightning-message-service',
       ],
     },
     {
