@@ -54,6 +54,7 @@ const sidebars = {
         'salesforce/apex/practical-guide',
         'salesforce/apex/advanced-soql',
         'salesforce/apex/dynamic-apex',
+        'salesforce/apex/security-sharing',
       ],
     },
     {
