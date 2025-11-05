@@ -51,6 +51,7 @@ const sidebars = {
         'salesforce/apex/testing',
         'salesforce/apex/asynchronous',
         'salesforce/apex/integration',
+        'salesforce/apex/practical-guide',
       ],
     },
     {
@@ -59,6 +60,7 @@ const sidebars = {
       items: [
         'salesforce/lwc/introduction',
         'salesforce/lwc/fundamentals',
+        'salesforce/lwc/practical-guide',
       ],
     },
     {
