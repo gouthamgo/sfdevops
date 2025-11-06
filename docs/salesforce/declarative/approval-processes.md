@@ -46,6 +46,62 @@ Approval Process Flow:
 8. Record locked or unlocked
 ```
 
+```mermaid
+flowchart TD
+    Start[User Submits Record] --> Entry{Entry Criteria<br/>Met?}
+    Entry -->|No| NoEntry[Record Not Submitted<br/>Stays in Current Status]
+    Entry -->|Yes| InitActions[Initial Submission Actions<br/>Lock record, Update fields, Send email]
+
+    InitActions --> Step1{Approval Step 1<br/>Manager Review}
+
+    Step1 --> Notify1[Email Notification<br/>to Approver]
+    Notify1 --> Wait1[Waiting for<br/>Approval]
+
+    Wait1 --> Decision1{Approver<br/>Decision}
+
+    Decision1 -->|Reject| RejectActions[Rejection Actions<br/>Unlock record, Update status, Email submitter]
+    Decision1 -->|Recall| RecallActions[Recall Actions<br/>Unlock record, Return to submitter]
+    Decision1 -->|Approve| Step2Check{More Approval<br/>Steps?}
+
+    Step2Check -->|Yes| Step2{Approval Step 2<br/>Director Review}
+    Step2 --> Notify2[Email Notification<br/>to Next Approver]
+    Notify2 --> Wait2[Waiting for<br/>Approval]
+    Wait2 --> Decision2{Approver<br/>Decision}
+
+    Decision2 -->|Reject| RejectActions
+    Decision2 -->|Approve| FinalCheck{More Steps?}
+
+    FinalCheck -->|Yes| Step2
+    FinalCheck -->|No| ApprovalActions
+
+    Step2Check -->|No| ApprovalActions[Final Approval Actions<br/>Update status, Unlock record, Send confirmation]
+
+    RejectActions --> End[Process Complete]
+    RecallActions --> End
+    ApprovalActions --> End
+    NoEntry --> End
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Entry fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Decision1 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Decision2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Step1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Step2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style ApprovalActions fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style RejectActions fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+    style RecallActions fill:#ffe0b2,stroke:#f57c00,stroke-width:2px
+    style Wait1 fill:#e0f2f1,stroke:#00796b,stroke-width:1px
+    style Wait2 fill:#e0f2f1,stroke:#00796b,stroke-width:1px
+    style End fill:#e0e0e0,stroke:#666,stroke-width:2px
+```
+
+**Key Components:**
+- **Entry Criteria**: Determines which records can be submitted
+- **Initial Actions**: Execute when submitted (lock record, field updates)
+- **Approval Steps**: Sequential or parallel approval requirements
+- **Final Actions**: Execute on approval (unlock, status change) or rejection
+- **Record Locking**: Prevents editing during approval
+
 ## 🛠️ Creating Approval Process
 
 ### Step-by-Step Setup
