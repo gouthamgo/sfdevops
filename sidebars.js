@@ -28,6 +28,8 @@ const sidebars = {
         'salesforce/fundamentals/troubleshooting-debugging',
         'salesforce/fundamentals/record-types-page-layouts',
         'salesforce/fundamentals/lightning-app-builder',
+        'salesforce/fundamentals/email-communication',
+        'salesforce/fundamentals/user-management',
       ],
     },
     {
