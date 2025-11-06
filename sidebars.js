@@ -26,6 +26,8 @@ const sidebars = {
         'salesforce/fundamentals/security-permissions',
         'salesforce/fundamentals/reports-dashboards',
         'salesforce/fundamentals/troubleshooting-debugging',
+        'salesforce/fundamentals/record-types-page-layouts',
+        'salesforce/fundamentals/lightning-app-builder',
       ],
     },
     {
@@ -34,6 +36,7 @@ const sidebars = {
       items: [
         'salesforce/data-model/objects-and-fields',
         'salesforce/data-model/relationships-lookups',
+        'salesforce/data-model/formula-fields-rollups',
         'salesforce/data-model/data-management',
       ],
     },
@@ -45,6 +48,7 @@ const sidebars = {
         'salesforce/declarative/validation-rules',
         'salesforce/declarative/flow-builder',
         'salesforce/declarative/automation-comparison',
+        'salesforce/declarative/approval-processes',
       ],
     },
     {
