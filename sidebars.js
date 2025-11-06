@@ -58,6 +58,9 @@ const sidebars = {
         'salesforce/apex/batch-queueable-patterns',
         'salesforce/apex/platform-events',
         'salesforce/apex/custom-metadata-settings',
+        'salesforce/apex/async-jobs-mastery',
+        'salesforce/apex/real-world-project',
+        'salesforce/apex/full-stack-integration',
       ],
     },
     {
