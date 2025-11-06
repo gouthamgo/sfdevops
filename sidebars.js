@@ -30,6 +30,8 @@ const sidebars = {
       label: '🗄️ Data Model & Objects',
       items: [
         'salesforce/data-model/objects-and-fields',
+        'salesforce/data-model/relationships-lookups',
+        'salesforce/data-model/data-management',
       ],
     },
     {
@@ -81,6 +83,7 @@ const sidebars = {
       items: [
         'salesforce/metadata/introduction',
         'salesforce/metadata/metadata-fundamentals',
+        'salesforce/metadata/sfdx-deployment',
       ],
     },
   ],
