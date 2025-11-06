@@ -55,6 +55,9 @@ const sidebars = {
         'salesforce/apex/advanced-soql',
         'salesforce/apex/dynamic-apex',
         'salesforce/apex/security-sharing',
+        'salesforce/apex/batch-queueable-patterns',
+        'salesforce/apex/platform-events',
+        'salesforce/apex/custom-metadata-settings',
       ],
     },
     {
