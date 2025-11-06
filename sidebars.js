@@ -23,6 +23,7 @@ const sidebars = {
       label: '📚 Platform Fundamentals',
       items: [
         'salesforce/fundamentals/platform-overview',
+        'salesforce/fundamentals/security-permissions',
       ],
     },
     {
@@ -41,6 +42,7 @@ const sidebars = {
         'salesforce/declarative/introduction',
         'salesforce/declarative/validation-rules',
         'salesforce/declarative/flow-builder',
+        'salesforce/declarative/automation-comparison',
       ],
     },
     {

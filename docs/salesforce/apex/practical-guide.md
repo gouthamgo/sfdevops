@@ -312,7 +312,7 @@ public class AccountingQueueable implements Queueable, Database.AllowsCallouts {
 ```
 
 **Why Queueable (not Future)?**
-- ✅ Can pass complex objects (`List<Property__c>`)
+- ✅ Can pass complex objects (`List&lt;Property__c&gt;`)
 - ✅ Returns Job ID for monitoring
 - ✅ Better error handling
 - ✅ Can chain if needed
@@ -468,7 +468,7 @@ public class QueryPattern {
 ```
 
 **Why this works?**
-- Map constructor accepts `List<SObject>`
+- Map constructor accepts `List&lt;SObject&gt;`
 - Map key is automatically the record Id
 - Super fast lookups
 
@@ -841,7 +841,7 @@ public class InspectionAssignmentQueueable implements Queueable {
 1. Trigger: Before Insert on Contact
 2. Query existing contacts with same email
 3. If found, add error to trigger record
-4. Bulkify with `Set<String>` for emails
+4. Bulkify with `Set&lt;String&gt;` for emails
 
 ```apex
 trigger ContactTrigger on Contact (before insert) {
