@@ -24,6 +24,8 @@ const sidebars = {
       items: [
         'salesforce/fundamentals/platform-overview',
         'salesforce/fundamentals/security-permissions',
+        'salesforce/fundamentals/reports-dashboards',
+        'salesforce/fundamentals/troubleshooting-debugging',
       ],
     },
     {
