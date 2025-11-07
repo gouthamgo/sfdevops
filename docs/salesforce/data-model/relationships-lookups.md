@@ -22,29 +22,33 @@ Master all relationship types in Salesforce to build connected, relational data 
 
 ## 🔗 Relationship Types Overview
 
+```mermaid
+graph LR
+    subgraph Lookup["Lookup Relationship (Loose Coupling)"]
+        P1[Parent Record<br/>Account]
+        C1[Child Record<br/>Contact]
+        P1 -.Optional.-> C1
+        Note1[✓ Optional<br/>✓ Independent<br/>✓ No cascade delete<br/>✓ Flexible ownership]
+    end
+
+    subgraph MasterDetail["Master-Detail Relationship (Tight Coupling)"]
+        P2[Master Record<br/>Property]
+        C2[Detail Record<br/>Showing]
+        P2 -->|Required| C2
+        Note2[✓ Required<br/>✓ Dependent<br/>✓ Cascade delete<br/>✓ Shared security<br/>✓ Roll-up summaries]
+    end
+
+    style P1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style C1 fill:#fff9c4,stroke:#f57c00,stroke-width:2px
+    style P2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style C2 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px
+    style Note1 fill:#f5f5f5,stroke:#666,stroke-width:1px
+    style Note2 fill:#f5f5f5,stroke:#666,stroke-width:1px
 ```
-Salesforce Relationships:
-├── Lookup Relationship
-│   ├── Loose coupling
-│   ├── Optional relationship
-│   ├── No cascade delete
-│   └── Independent records
-│
-├── Master-Detail Relationship
-│   ├── Tight coupling
-│   ├── Required relationship
-│   ├── Cascade delete
-│   ├── Roll-up summaries
-│   └── Shares parent security
-│
-├── Hierarchical Relationship
-│   ├── Special type for User object
-│   └── User reports to User
-│
-└── External Lookup
-    ├── Links to external data
-    └── Uses External IDs
-```
+
+**Key Differences:**
+- **Lookup** (dashed line): Loose, optional connection. Records independent
+- **Master-Detail** (solid line): Tight, required connection. Detail depends on master
 
 ## 📍 Lookup Relationships
 
@@ -326,6 +330,63 @@ Use junction objects for many-to-many relationships.
 Property__c ← Property_Feature__c → Feature__c
   (Master)         (Junction)         (Master)
 ```
+
+```mermaid
+graph TD
+    subgraph Properties["Properties (Master)"]
+        P1[Property 1<br/>123 Main St]
+        P2[Property 2<br/>456 Oak Ave]
+        P3[Property 3<br/>789 Pine Dr]
+    end
+
+    subgraph Junction["Property_Feature__c (Junction Object)"]
+        J1[P1 + Pool]
+        J2[P1 + Garage]
+        J3[P2 + Pool]
+        J4[P2 + Fireplace]
+        J5[P3 + Garage]
+        J6[P3 + Fireplace]
+    end
+
+    subgraph Features["Features (Master)"]
+        F1[Pool]
+        F2[Garage]
+        F3[Fireplace]
+    end
+
+    P1 -.Master-Detail.-> J1
+    P1 -.Master-Detail.-> J2
+    P2 -.Master-Detail.-> J3
+    P2 -.Master-Detail.-> J4
+    P3 -.Master-Detail.-> J5
+    P3 -.Master-Detail.-> J6
+
+    J1 -.Master-Detail.-> F1
+    J2 -.Master-Detail.-> F2
+    J3 -.Master-Detail.-> F1
+    J4 -.Master-Detail.-> F3
+    J5 -.Master-Detail.-> F2
+    J6 -.Master-Detail.-> F3
+
+    style P1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style P2 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style P3 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style F1 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style F2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style F3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style J1 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style J2 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style J3 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style J4 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style J5 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style J6 fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+```
+
+**Key Points:**
+- Each junction record connects ONE property to ONE feature
+- Property 1 has Pool + Garage (2 junction records)
+- Pool feature appears on Property 1 AND Property 2 (many-to-many ✓)
+- Both relationships are Master-Detail for data integrity
 
 ### Creating Junction Object
 

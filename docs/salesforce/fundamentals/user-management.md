@@ -47,6 +47,49 @@ User Settings:
 └── Two-factor authentication
 ```
 
+```mermaid
+graph TD
+    User[User Account<br/>john.smith@company.com]
+
+    User --> License[User License<br/>Salesforce Platform]
+    User --> Profile[Profile Required<br/>Sales User]
+    User --> Role[Role Optional<br/>Sales Rep West]
+    User --> PermSets[Permission Sets<br/>Multiple Optional]
+
+    License --> LicFeatures[License Determines:<br/>• Objects accessible<br/>• Features available<br/>• API calls<br/>• Storage]
+
+    Profile --> ProfilePerms[Profile Controls:<br/>• Object CRUD<br/>• Field-level security<br/>• Tab visibility<br/>• Page layouts<br/>• Admin permissions]
+
+    Role --> RoleAccess[Role Controls:<br/>• Data visibility<br/>• Hierarchy access<br/>• Manager sees subordinate data<br/>• Sharing rules]
+
+    PermSets --> PS1[Property Manager]
+    PermSets --> PS2[Report Builder]
+    PermSets --> PS3[API Access]
+
+    PS1 --> PSPerms[Permission Sets Grant:<br/>• Additional object access<br/>• Extra field permissions<br/>• Special features<br/>• Stackable]
+    PS2 --> PSPerms
+    PS3 --> PSPerms
+
+    style User fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style License fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Profile fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Role fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style PermSets fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style PS1 fill:#ffe0b2,stroke:#f57c00,stroke-width:1px
+    style PS2 fill:#ffe0b2,stroke:#f57c00,stroke-width:1px
+    style PS3 fill:#ffe0b2,stroke:#f57c00,stroke-width:1px
+    style LicFeatures fill:#fff9c4,stroke:#f57c00,stroke-width:1px
+    style ProfilePerms fill:#e1bee7,stroke:#7b1fa2,stroke-width:1px
+    style RoleAccess fill:#c8e6c9,stroke:#388e3c,stroke-width:1px
+    style PSPerms fill:#f8bbd0,stroke:#c2185b,stroke-width:1px
+```
+
+**Key Principle**: Users get permissions through multiple layers
+- **License**: Platform capability (what org can do)
+- **Profile**: Baseline permissions (required, one per user)
+- **Role**: Data visibility (optional, hierarchy-based)
+- **Permission Sets**: Additional permissions (optional, multiple per user)
+
 ## 👤 Creating Users
 
 ### Standard User Creation
@@ -384,6 +427,70 @@ Role: Sales Rep West
   - Sees Accounts owned by team
   - Sales Manager West sees all of the above
 ```
+
+```mermaid
+graph LR
+    subgraph Profile["Profile: Standard User (Required)"]
+        PF1[What Can DO<br/>───────────]
+        PF2[✓ Read Accounts<br/>✓ Create Accounts<br/>✓ Read Opportunities<br/>✓ Create Opportunities]
+        PF1 --> PF2
+    end
+
+    subgraph PermSet["Permission Sets (Optional)"]
+        PS1[Report Builder]
+        PS2[API Access]
+        PSF1[Additional Permissions<br/>───────────]
+        PSF2[✓ Create custom reports<br/>✓ Schedule reports<br/>✓ API enabled]
+        PS1 --> PSF1
+        PS2 --> PSF1
+        PSF1 --> PSF2
+    end
+
+    subgraph Role["Role: Sales Rep West (Optional)"]
+        R1[What Can SEE<br/>───────────]
+        R2[✓ Own records<br/>✓ Team's records<br/>✓ Manager sees all]
+        R1 --> R2
+    end
+
+    User[👤 User<br/>Jane Smith] --> Profile
+    User --> PermSet
+    User --> Role
+
+    Profile -.Baseline.-> Result[Final Permissions<br/>═══════════]
+    PermSet -.Additions.-> Result
+    Role -.Data Access.-> Result
+
+    Result --> Final[✓ CRUD on Accounts/Opps<br/>✓ Create/schedule reports<br/>✓ API access<br/>✓ See own + team data<br/>✓ Manager sees subordinates]
+
+    style User fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style Profile fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style PermSet fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Role fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Result fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Final fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style PF1 fill:#e1bee7,stroke:#7b1fa2,stroke-width:1px
+    style PF2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
+    style PSF1 fill:#f8bbd0,stroke:#c2185b,stroke-width:1px
+    style PSF2 fill:#fce4ec,stroke:#c2185b,stroke-width:1px
+    style R1 fill:#a5d6a7,stroke:#388e3c,stroke-width:1px
+    style R2 fill:#c8e6c9,stroke:#388e3c,stroke-width:1px
+    style PS1 fill:#ffe0b2,stroke:#f57c00,stroke-width:1px
+    style PS2 fill:#ffe0b2,stroke:#f57c00,stroke-width:1px
+```
+
+**Key Differences:**
+
+| Component | Purpose | Required? | Quantity |
+|-----------|---------|-----------|----------|
+| **Profile** | What user can DO (CRUD) | ✅ Required | One per user |
+| **Permission Set** | Additional permissions | ❌ Optional | Multiple per user |
+| **Role** | What data user can SEE | ❌ Optional | One per user |
+
+**Important**: Permissions are ADDITIVE
+- Profile provides baseline
+- Permission Sets ADD more
+- Role controls data visibility
+- Nothing can take away permissions granted by profile
 
 ## 🔐 Security Settings
 

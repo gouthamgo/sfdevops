@@ -23,27 +23,48 @@ Master Salesforce's comprehensive security model to control who can see and do w
 
 ## 🔒 Security Layers Overview
 
+```mermaid
+flowchart TD
+    Start[User Attempts to Access Record] --> OWD[Layer 1: Organization-Wide Defaults OWD<br/>Baseline Access]
+    OWD --> |Private| Denied1{Owns Record?}
+    OWD --> |Public Read| Read[Can Read ✓]
+    OWD --> |Public Read/Write| Write[Can Read & Edit ✓]
+
+    Denied1 --> |No| RoleHier[Layer 2: Role Hierarchy<br/>Manager Access?]
+    Denied1 --> |Yes| Owner[Full Access ✓]
+
+    RoleHier --> |Yes| HierAccess[Can Read via Hierarchy ✓]
+    RoleHier --> |No| ShareRule[Layer 3: Sharing Rules<br/>Criteria Match?]
+
+    ShareRule --> |Yes| RuleAccess[Can Read ✓]
+    ShareRule --> |No| ManualShare[Layer 4: Manual Sharing<br/>Explicitly Shared?]
+
+    ManualShare --> |Yes| ManualAccess[Can Read ✓]
+    ManualShare --> |No| ApexShare[Layer 5: Apex Sharing<br/>Programmatically Shared?]
+
+    ApexShare --> |Yes| ApexAccess[Can Read ✓]
+    ApexShare --> |No| NoAccess[No Access ❌]
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style OWD fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style RoleHier fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style ShareRule fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style ManualShare fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style ApexShare fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style Owner fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style HierAccess fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style RuleAccess fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style ManualAccess fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style ApexAccess fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Read fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Write fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style NoAccess fill:#ffcdd2,stroke:#c62828,stroke-width:2px
 ```
-Salesforce Security Layers (Most Restrictive → Least Restrictive):
 
-1. Organization-Wide Defaults (OWD)
-   ↓ Baseline access for all users
-
-2. Role Hierarchy
-   ↓ Managers can see subordinate data
-
-3. Sharing Rules
-   ↓ Extend access based on criteria
-
-4. Manual Sharing
-   ↓ Share specific records
-
-5. Apex Sharing
-   ↓ Programmatic sharing
-
-Each layer can only GRANT more access, never restrict.
-Most restrictive setting wins!
-```
+**Key Principles:**
+- Each layer can only GRANT more access, never restrict
+- Most restrictive setting wins!
+- Start from OWD (most restrictive) and layer up (more permissive)
 
 ## 🌐 Organization-Wide Defaults (OWD)
 
@@ -114,23 +135,47 @@ Managers automatically see data owned by subordinates.
 
 ### How It Works
 
-```
-CEO
- ├── VP Sales
- │    ├── Sales Manager
- │    │    ├── Sales Rep 1
- │    │    └── Sales Rep 2
- │    └── Sales Manager 2
- └── VP Operations
-      └── Operations Manager
+```mermaid
+graph TD
+    CEO[CEO<br/>Sees ALL data]
+    VPSO[VP Sales<br/>Sees Sales data]
+    VPOP[VP Operations<br/>Sees Ops data]
+    SM1[Sales Manager<br/>Sees team data]
+    SM2[Sales Manager 2<br/>Sees team data]
+    OM[Operations Manager<br/>Sees ops team data]
+    SR1[Sales Rep 1<br/>Sees own data]
+    SR2[Sales Rep 2<br/>Sees own data]
+    SR3[Sales Rep 3<br/>Sees own data]
+    OA[Operations Analyst<br/>Sees own data]
 
-Access Flow:
-- Sales Rep 1 owns Property A
-- Sales Manager sees Property A (role hierarchy)
-- VP Sales sees Property A (role hierarchy)
-- CEO sees Property A (role hierarchy)
-- Operations Manager does NOT see Property A (different branch)
+    CEO --> VPSO
+    CEO --> VPOP
+    VPSO --> SM1
+    VPSO --> SM2
+    SM1 --> SR1
+    SM1 --> SR2
+    SM2 --> SR3
+    VPOP --> OM
+    OM --> OA
+
+    style CEO fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style VPSO fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style VPOP fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style SM1 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style SM2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style OM fill:#ffe0b2,stroke:#f57c00,stroke-width:2px
+    style SR1 fill:#e0f2f1,stroke:#00796b
+    style SR2 fill:#e0f2f1,stroke:#00796b
+    style SR3 fill:#e0f2f1,stroke:#00796b
+    style OA fill:#fff9c4,stroke:#f57c00
 ```
+
+**Access Flow Example:**
+- Sales Rep 1 owns Property A
+- Sales Manager sees Property A (role hierarchy ⬆️)
+- VP Sales sees Property A (role hierarchy ⬆️)
+- CEO sees Property A (role hierarchy ⬆️)
+- Operations Manager does NOT see Property A (different branch ❌)
 
 ### Creating Roles
 

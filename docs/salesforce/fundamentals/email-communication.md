@@ -45,6 +45,74 @@ Email Tracking:
 └── Activity history
 ```
 
+```mermaid
+flowchart TD
+    Start[Email Communication Need] --> Type{Email Type}
+
+    Type -->|Single Email| Manual[Manual Send]
+    Type -->|Mass Email| Mass[Mass Email<br/>Max 5000/day]
+    Type -->|Automated| Auto[Email Alert<br/>from Automation]
+    Type -->|Programmatic| Apex[Apex Email<br/>from Code]
+
+    Manual --> Template{Use Template?}
+    Mass --> Template
+    Auto --> Template
+    Apex --> Template
+
+    Template -->|Yes| SelectTemplate[Select Template<br/>Text, HTML, VF, Lightning]
+    Template -->|No| Compose[Compose Email<br/>Ad-hoc]
+
+    SelectTemplate --> Merge[Merge Fields<br/>Replace with Record Data]
+    Compose --> Send
+
+    Merge --> Send[Send Email]
+
+    Send --> Deliver{Deliverability<br/>Check}
+
+    Deliver -->|Valid| Sent[Email Sent ✓]
+    Deliver -->|Bounce| Bounce[Bounced ❌<br/>Invalid Address]
+    Deliver -->|Blocked| Block[Blocked ❌<br/>Spam Filter]
+
+    Sent --> Track[Email Tracking]
+
+    Track --> Open{Recipient<br/>Opens?}
+    Track --> Click{Recipient<br/>Clicks Link?}
+
+    Open -->|Yes| OpenTracked[Open Tracked ✓<br/>HTML emails only]
+    Open -->|No| NoOpen[Not Opened]
+
+    Click -->|Yes| ClickTracked[Click Tracked ✓]
+    Click -->|No| NoClick[No Clicks]
+
+    OpenTracked --> Activity[Logged in Activity History]
+    ClickTracked --> Activity
+    NoOpen --> Activity
+    NoClick --> Activity
+    Bounce --> Activity
+    Block --> Activity
+
+    Activity --> Report[Email Reports<br/>Analytics & Insights]
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Type fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Send fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Deliver fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Sent fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Bounce fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+    style Block fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+    style OpenTracked fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style ClickTracked fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Activity fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style Report fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px
+```
+
+**Email Flow Components:**
+- **Email Types**: Single, Mass, Automated (alerts), Programmatic (Apex)
+- **Templates**: Reusable templates with merge fields for personalization
+- **Deliverability**: Validation, bounce handling, spam filtering
+- **Tracking**: Open tracking (HTML), click tracking, activity logging
+- **Analytics**: Reports on email performance and engagement
+
 ## 📝 Email Templates
 
 ### Text Email Templates

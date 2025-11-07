@@ -99,6 +99,77 @@ Responds to platform events.
 - Event-driven architecture
 - Real-time updates
 
+```mermaid
+flowchart TD
+    Start[Flow Execution Triggers] --> Types{Flow Type}
+
+    Types -->|Record Change| RecordTrig[Record-Triggered Flow]
+    Types -->|User Action| Screen[Screen Flow]
+    Types -->|Time Based| Schedule[Schedule-Triggered Flow]
+    Types -->|No UI| AutoLaunch[Autolaunched Flow]
+    Types -->|Event| PlatformEvent[Platform Event Flow]
+
+    RecordTrig --> RecordTime{Timing}
+    RecordTime -->|Before Save| BeforeSave[Before-Save<br/>Fast Field Updates<br/>Same Transaction]
+    RecordTime -->|After Save| AfterSave[After-Save<br/>Can Create/Update Other Records<br/>Async Capable]
+
+    BeforeSave --> RecordExec[Execute Flow Elements:<br/>• Get Records<br/>• Decisions<br/>• Assignments<br/>• Update triggering record]
+    AfterSave --> RecordExec2[Execute Flow Elements:<br/>• Get Records<br/>• Create Records<br/>• Update Records<br/>• Send Email<br/>• Call Apex]
+
+    Screen --> UserInput[Display Screen<br/>Collect User Input]
+    UserInput --> ScreenLogic[Process Input:<br/>• Decisions<br/>• Get Records<br/>• Create/Update Records<br/>• Show next screen]
+    ScreenLogic --> UserInput2{More Screens?}
+    UserInput2 -->|Yes| UserInput
+    UserInput2 -->|No| Complete
+
+    Schedule --> ScheduleExec[Scheduled Execution<br/>Daily/Weekly/Monthly]
+    ScheduleExec --> BatchProcess[Batch Processing:<br/>• Get Records with criteria<br/>• Loop through records<br/>• Update/Create records]
+
+    AutoLaunch --> Caller{Called By}
+    Caller -->|Process Builder| PB[Legacy Process Builder]
+    Caller -->|Another Flow| SubFlow[Subflow Pattern]
+    Caller -->|Apex Code| ApexCall[Apex Invocation]
+    Caller -->|REST API| API[External System]
+
+    PB --> AutoExec[Execute Without UI:<br/>• Business logic<br/>• Record operations<br/>• Reusable components]
+    SubFlow --> AutoExec
+    ApexCall --> AutoExec
+    API --> AutoExec
+
+    PlatformEvent --> EventListen[Listen for Events]
+    EventListen --> EventReceive[Event Received]
+    EventReceive --> EventProcess[Process Event Data:<br/>• Create/Update Records<br/>• Notify Users<br/>• Trigger Other Automation]
+
+    RecordExec --> Complete[Flow Complete]
+    RecordExec2 --> Complete
+    ScreenLogic --> Complete
+    BatchProcess --> Complete
+    AutoExec --> Complete
+    EventProcess --> Complete
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Types fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style RecordTrig fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Screen fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Schedule fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style AutoLaunch fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style PlatformEvent fill:#fff9c4,stroke:#f57c00,stroke-width:2px
+    style BeforeSave fill:#e1bee7,stroke:#7b1fa2,stroke-width:1px
+    style AfterSave fill:#ce93d8,stroke:#7b1fa2,stroke-width:1px
+    style Complete fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+```
+
+**Flow Type Decision Guide:**
+
+| If You Need... | Use This Flow Type | Launch From |
+|----------------|-------------------|-------------|
+| Auto-update fields on save | Record-Triggered (Before) | Automatic |
+| Create related records | Record-Triggered (After) | Automatic |
+| Guided user wizard | Screen Flow | Quick Action, Page |
+| Nightly batch job | Schedule-Triggered | Time-based |
+| Reusable logic | Autolaunched | Called by other flows/Apex |
+| React to external events | Platform Event | Event subscription |
+
 ## 🏗️ Building Your First Flow
 
 Let's create a record-triggered flow!
