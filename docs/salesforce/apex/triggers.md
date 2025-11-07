@@ -106,6 +106,87 @@ trigger PropertyTrigger on Property__c (
 - Use when you need to send emails or callouts
 - Record has been committed to database
 
+### Salesforce Order of Execution
+
+Understanding the complete order of execution is critical for trigger development.
+
+```mermaid
+flowchart TD
+    Start[Record Save Initiated] --> Load[1. Load Original Record<br/>from Database]
+
+    Load --> SysVal[2. System Validation Rules<br/>Required fields, unique, data types]
+
+    SysVal --> BeforeFlow[3. Before-Save Flows<br/>Record-Triggered Flows Before]
+
+    BeforeFlow --> BeforeTrig[4. Before Triggers<br/>before insert/update/delete]
+
+    BeforeTrig --> CustVal[5. Custom Validation Rules<br/>Field validation rules]
+
+    CustVal --> DupRules[6. Duplicate Rules<br/>Check for duplicates]
+
+    DupRules --> SaveDB[7. Save to Database<br/>No commit yet]
+
+    SaveDB --> AfterTrig[8. After Triggers<br/>after insert/update/delete]
+
+    AfterTrig --> AssignRules[9. Assignment Rules<br/>Lead/Case assignment]
+
+    AssignRules --> AutoResp[10. Auto-Response Rules<br/>Email auto-responses]
+
+    AutoResp --> WorkflowRules[11. Workflow Rules<br/>Legacy automation]
+
+    WorkflowRules --> Processes[12. Processes<br/>Process Builder Deprecated]
+
+    Processes --> AfterFlow[13. After-Save Flows<br/>Record-Triggered Flows After]
+
+    AfterFlow --> Escalation[14. Escalation Rules<br/>Case escalations]
+
+    Escalation --> ParentRollup[15. Parent Record Updates<br/>Roll-up summary fields]
+
+    ParentRollup --> ParentCheck{Parent Updated?}
+
+    ParentCheck -->|Yes| BeforeTrig
+    ParentCheck -->|No| GrandParent[16. Grandparent Updates<br/>If master-detail chain]
+
+    GrandParent --> Commit[17. Commit to Database<br/>All or nothing]
+
+    Commit --> PostCommit[18. Post-Commit Logic<br/>Emails, async jobs]
+
+    PostCommit --> End[Save Complete ✓]
+
+    style Start fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style BeforeTrig fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style AfterTrig fill:#ce93d8,stroke:#7b1fa2,stroke-width:3px
+    style SaveDB fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Commit fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style End fill:#81c784,stroke:#2e7d32,stroke-width:2px
+    style CustVal fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+    style BeforeFlow fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px
+    style AfterFlow fill:#ce93d8,stroke:#7b1fa2,stroke-width:2px
+```
+
+**Key Points:**
+- **Before Triggers** run BEFORE record is saved (no Id for new records)
+- **After Triggers** run AFTER save but BEFORE commit
+- Changes to `Trigger.new` in before triggers don't need DML
+- After trigger DML may cause recursive triggers (use static flags!)
+- Validation rules run AFTER before triggers (triggers can set invalid data)
+- Workflow field updates can cause triggers to fire again
+- Everything is in one transaction until step 17
+
+**Recursion Prevention:**
+```apex
+public class TriggerControl {
+    public static Boolean isFirstRun = true;
+}
+
+trigger PropertyTrigger on Property__c (before update) {
+    if(TriggerControl.isFirstRun) {
+        TriggerControl.isFirstRun = false;
+        // Your trigger logic
+    }
+}
+```
+
 ## 📦 Trigger Context Variables
 
 ### Trigger.new and Trigger.newMap
