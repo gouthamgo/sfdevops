@@ -575,7 +575,7 @@ Let's break down the key features of this production-ready pipeline:
     - sf org login sfdx-url --sfdx-url-file authfile.txt --alias target-org
 ```
 
-The `&auth_template` creates a reusable template. Any job can reference it with `<<: *auth_template`. This avoids repeating the authentication code in every job.
+The `&auth_template` creates a reusable template. Any job can reference it with `&lt;&lt;: *auth_template`. This avoids repeating the authentication code in every job.
 
 **Why this matters**: If you need to change how authentication works, you change it once, not in 10 different places.
 
