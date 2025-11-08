@@ -46,9 +46,9 @@ This is your interview cheat sheet. Each question includes:
 > "You open the file and fix the conflict."
 
 **Strong Answer** ✅:
-> "When Git encounters a merge conflict, it marks the conflicted sections with `<<<<<<<`, `=======`, and `>>>>>>>` markers. I'd first run `git status` to see which files are in conflict.
+> "When Git encounters a merge conflict, it marks the conflicted sections with `&lt;&lt;&lt;&lt;&lt;&lt;&lt;`, `=======`, and `&gt;&gt;&gt;&gt;&gt;&gt;&gt;` markers. I'd first run `git status` to see which files are in conflict.
 >
-> Then I'd open each file and look at both versions. The section between `<<<` and `===` is my current branch, and between `===` and `>>>` is the incoming branch. I need to understand what each developer was trying to accomplish—often I'll talk to them directly if the change is complex.
+> Then I'd open each file and look at both versions. The section between `&lt;&lt;&lt;` and `===` is my current branch, and between `===` and `&gt;&gt;&gt;` is the incoming branch. I need to understand what each developer was trying to accomplish—often I'll talk to them directly if the change is complex.
 >
 > For Salesforce metadata conflicts, it's usually adding different methods to the same class, so I keep both changes. If they modified the same method, I need to combine the logic carefully.
 >

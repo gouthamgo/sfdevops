@@ -967,7 +967,7 @@ Unexpected character `<` (U+003C) before name
 Line 464: - Failure rate: <15%
 ```
 
-**Root cause:** `<15%` was interpreted as HTML tag
+**Root cause:** `&lt;15%` was interpreted as HTML tag
 
 **Fix:**
 ```diff

@@ -837,7 +837,7 @@ git log --oneline --graph --all --decorate
 **Interviewer**: "Two developers modified the same Apex class on different branches. How do you handle the merge conflict?"
 
 **Strong Answer** ✅:
-> "First, I'd identify the conflict when merging—Git will mark the conflicted files. I'd open the file and look for the conflict markers: `<<<<<<< HEAD`, `=======`, and `>>>>>>>`.
+> "First, I'd identify the conflict when merging—Git will mark the conflicted files. I'd open the file and look for the conflict markers: `&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD`, `=======`, and `&gt;&gt;&gt;&gt;&gt;&gt;&gt;`.
 >
 > I'd talk to both developers to understand the intent of their changes. Often in Salesforce, we're adding different methods to the same class, so the resolution is to include both changes. If they modified the same method, we need to understand the business logic and combine them appropriately.
 >
